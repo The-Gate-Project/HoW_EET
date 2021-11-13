@@ -1,0 +1,919 @@
+BACKUP ~how_eet/backup~
+AUTHOR ~Ya~
+
+ALWAYS
+  //BLOCK CRE_TO_AREA
+DEFINE_PATCH_FUNCTION ~add_area_cre_acti~
+  INT_VAR
+    pos_x       =   1
+    pos_y       =   1
+    dest_x      =   ~%pos_x%~
+    dest_y      =   ~%pos_y%~
+    flags       =   1
+    anim        =   25602
+    dir         =   0
+    //unknown     =   0xff
+    expiri_time = ~-1~
+    wander_dist =   0
+    follow_dist =   0
+    present_at  =   0b11111111111111111111111111111111
+    talked_to   =   0
+    position    =   0
+  STR_VAR
+    //area_name   = ""
+    actor_name  = ""
+    dialogue    = ""
+    over_scr    = ""
+    genr_scr    = ""
+    clas_scr    = ""
+    race_scr    = ""
+    defl_scr    = ""
+    spec_scr    = ""
+    cre_file    = ""
+  RET
+    position
+    offset
+BEGIN
+    //BLOCK
+    //COPY_EXISTING ~%area_name%.are~ ~override~
+      READ_LONG   0x54 actor_off
+      READ_SHORT  0x58 actor_num
+      WRITE_SHORT 0x58 ~%actor_num%~ + 1
+      READ_LONG   0x5c triggers_off
+      PATCH_IF (~%triggers_off%~ >= ~%actor_off%~) BEGIN
+        WRITE_LONG 0x5c ~%triggers_off%~ + 0x110
+      END
+      READ_LONG   0x60 spawn_off
+      PATCH_IF (~%spawn_off%~ >= ~%actor_off%~) BEGIN
+        WRITE_LONG 0x60 ~%spawn_off%~ + 0x110
+      END
+      READ_LONG   0x68 entrance_off
+      PATCH_IF (~%entrance_off%~ >= ~%actor_off%~) BEGIN
+        WRITE_LONG 0x68 ~%entrance_off%~ + 0x110
+      END
+      READ_LONG   0x70 contain_off
+      PATCH_IF (~%contain_off%~ >= ~%actor_off%~) BEGIN
+        WRITE_LONG 0x70 ~%contain_off%~ + 0x110
+      END
+      READ_LONG   0x78 item_off
+      PATCH_IF (~%item_off%~ >= ~%actor_off%~) BEGIN
+        WRITE_LONG 0x78 ~%item_off%~ + 0x110
+      END
+      READ_LONG   0x7c vert_off
+      PATCH_IF (~%vert_off%~ >= ~%actor_off%~) BEGIN
+        WRITE_LONG 0x7c ~%vert_off%~ + 0x110
+      END
+      READ_LONG   0x84 ambi_off
+      PATCH_IF (~%ambi_off%~ >= ~%actor_off%~) BEGIN
+        WRITE_LONG 0x84 ~%ambi_off%~ + 0x110
+      END
+      READ_LONG   0x88 var_off
+      PATCH_IF (~%var_off%~ >= ~%actor_off%~) BEGIN
+        WRITE_LONG 0x88 ~%var_off%~ + 0x110
+      END
+      READ_LONG   0xa0 explore_off
+      PATCH_IF (~%explore_off%~ >= ~%actor_off%~) BEGIN
+        WRITE_LONG 0xa0 ~%explore_off%~ + 0x110
+      END
+      READ_LONG   0xa8 door_off
+      PATCH_IF (~%door_off%~ >= ~%actor_off%~) BEGIN
+        WRITE_LONG 0xa8 ~%door_off%~ + 0x110
+      END
+      READ_LONG   0xb0 anim_off
+      PATCH_IF (~%anim_off%~ >= ~%actor_off%~) BEGIN
+        WRITE_LONG 0xb0 ~%anim_off%~ + 0x110
+      END
+      READ_LONG   0xb8 tiled_off
+      PATCH_IF (~%tiled_off%~ >= ~%actor_off%~) BEGIN
+        WRITE_LONG 0xb8 ~%tiled_off%~ + 0x110
+      END
+      READ_LONG   0xbc song_off
+      PATCH_IF (~%song_off%~ >= ~%actor_off%~) BEGIN
+        WRITE_LONG 0xbc ~%song_off%~ + 0x110
+      END
+      READ_LONG   0xc0 rest_enc_off
+      PATCH_IF (~%rest_enc_off%~ >= ~%actor_off%~) BEGIN
+        WRITE_LONG 0xc0 ~%rest_enc_off%~ + 0x110
+      END
+      READ_LONG   0xc4 auto_map_off
+      PATCH_IF (~%auto_map_off%~ >= ~%actor_off%~) BEGIN
+        WRITE_LONG 0xc4 ~%auto_map_off%~ + 0x110
+      END
+    //BLOCKEND
+    //position += 1
+    PATCH_IF (position > actor_num) THEN BEGIN
+      position = actor_num
+    END
+    offset = ~%actor_off%~ + 0x110 * ~%position%~
+    
+      INSERT_BYTES ~%offset%~ 0x110
+        WRITE_ASCIIE ~%offset%~ + 0x00 ~%actor_name%~ (32)
+        WRITE_SHORT  ~%offset%~ + 0x20 ~%pos_x%~
+        WRITE_SHORT  ~%offset%~ + 0x22 ~%pos_y%~
+        WRITE_SHORT  ~%offset%~ + 0x24 ~%dest_x%~
+        WRITE_SHORT  ~%offset%~ + 0x26 ~%dest_y%~
+        WRITE_BYTE   ~%offset%~ + 0x28 ~%flags%~
+        WRITE_LONG   ~%offset%~ + 0x30 ~%anim%~
+        WRITE_SHORT  ~%offset%~ + 0x34 ~%dir%~
+        //WRITE_BYTE   ~%actor_off%~ + 0x36 ~%unknown%~
+        WRITE_LONG   ~%offset%~ + 0x38 ~%expiri_time%~
+        WRITE_SHORT  ~%offset%~ + 0x3c ~%wander_dist%~
+        WRITE_SHORT  ~%offset%~ + 0x3e ~%follow_dist%~
+        WRITE_LONG   ~%offset%~ + 0x40 ~%present_at%~
+        WRITE_LONG   ~%offset%~ + 0x44 ~%talked_to%~
+        WRITE_ASCIIE ~%offset%~ + 0x48 ~%dialogue%~ (8)
+        WRITE_ASCIIE ~%offset%~ + 0x50 ~%over_scr%~ (8)
+        WRITE_ASCIIE ~%offset%~ + 0x58 ~%genr_scr%~ (8)
+        WRITE_ASCIIE ~%offset%~ + 0x60 ~%clas_scr%~ (8)
+        WRITE_ASCIIE ~%offset%~ + 0x68 ~%race_scr%~ (8)
+        WRITE_ASCIIE ~%offset%~ + 0x70 ~%defl_scr%~ (8)
+        WRITE_ASCIIE ~%offset%~ + 0x78 ~%spec_scr%~ (8)
+        WRITE_ASCIIE ~%offset%~ + 0x80 ~%cre_file%~ (8)
+END
+
+DEFINE_ACTION_FUNCTION ~add_area_cre_acti~
+  INT_VAR
+    pos_x       =   1
+    pos_y       =   1
+    dest_x      =   ~%pos_x%~
+    dest_y      =   ~%pos_y%~
+    flags       =   1
+    anim        =   25602
+    dir         =   0
+    //unknown     =   0xff
+    expiri_time = ~-1~
+    wander_dist =   0
+    follow_dist =   0
+    present_at  =   0b11111111111111111111111111111111
+    talked_to   =   0
+    position    =   0
+  STR_VAR
+    area        = ""
+    actor_name  = ""
+    dialogue    = ""
+    over_scr    = ""
+    genr_scr    = ""
+    clas_scr    = ""
+    race_scr    = ""
+    defl_scr    = ""
+    spec_scr    = ""
+    cre_file    = ""
+  RET
+    position
+    offset
+BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME ~%area%.are~ THEN BEGIN
+    COPY_EXISTING ~%area%.are~ ~override~
+      LPF add_area_cre_acti
+        INT_VAR
+          pos_x       =   pos_x
+          pos_y       =   pos_y
+          dest_x      =   dest_x
+          dest_y      =   dest_y
+          flags       =   flags
+          anim        =   anim
+          dir         =   dir
+          //unknown     =   0xff
+          expiri_time =   expiri_time
+          wander_dist =   wander_dist
+          follow_dist =   follow_dist
+          present_at  =   present_at
+          talked_to   =   talked_to
+          position    =   position
+        STR_VAR
+          actor_name  = EVAL ~%actor_name%~
+          dialogue    = EVAL ~%dialogue%~
+          over_scr    = EVAL ~%over_scr%~
+          genr_scr    = EVAL ~%genr_scr%~
+          clas_scr    = EVAL ~%clas_scr%~
+          race_scr    = EVAL ~%race_scr%~
+          defl_scr    = EVAL ~%defl_scr%~
+          spec_scr    = EVAL ~%spec_scr%~
+          cre_file    = EVAL ~%cre_file%~
+        RET
+          position
+          offset
+      END
+  END
+END
+//BLOCKEND
+  /** APPEND_STATDESC_ENTRY
+  */
+	DEFINE_ACTION_FUNCTION APPEND_STATDESC_ENTRY
+	INT_VAR
+	  strref   = "-1"
+	STR_VAR
+	  bam_file = "****"
+	RET
+	  index
+	BEGIN
+	  OUTER_SET index = "-1"
+	  OUTER_SET minus = "-1"  
+	  ACTION_IF ( strref >= 0 ) OR !( bam_file STRING_EQUAL ~****~ ) BEGIN
+	    ACTION_IF ( bam_file STRING_EQUAL ~~ ) BEGIN
+	      OUTER_TEXT_SPRINT bam_file ~****~
+	    END    
+	    ACTION_IF (FILE_EXISTS_IN_GAME ~statdesc.2da~) BEGIN
+	      COPY_EXISTING ~statdesc.2da~ ~override~
+	        COUNT_2DA_ROWS 3 table
+	        FOR ( idx = 0 ; idx < table ; ++idx ) BEGIN
+	          READ_2DA_ENTRY idx 0 3 number
+	          READ_2DA_ENTRY idx 1 3 curStrref
+	          READ_2DA_ENTRY idx 2 3 curBam
+	          PATCH_IF ( idx < number ) BEGIN
+	            TEXT_SPRINT line ~%idx%         %strref%         %bam_file%~
+	            INSERT_2DA_ROW idx 3 ~%line%~
+	            SET index = idx
+	            SET idx = table + 1
+	          END
+	          PATCH_IF ( ~%curStrref%~ = ~%minus%~ ) AND ( ~%curBam%~ STRING_EQUAL ~****~ ) AND ( index < 0 ) BEGIN
+	            SET_2DA_ENTRY idx 1 3 ~%strref%~
+	            SET_2DA_ENTRY idx 2 3 ~%bam_file%~
+	            SET index = number
+	            SET idx = table + 1
+	          END
+	        END        
+	        PATCH_IF ( index < 0 ) BEGIN
+	          TEXT_SPRINT line ~%table%         %strref%         %bam_file%~
+	          INSERT_2DA_ROW table 3 ~%line%~
+	          SET index = table
+	        END        
+	        PRETTY_PRINT_2DA
+	      BUT_ONLY
+	    END
+	  END
+	END
+
+	DEFINE_ACTION_FUNCTION ADD_SAVE_GAME
+		INT_VAR
+			strref    = "-1"
+			num_saves = 1
+			start     = "-1"
+		STR_VAR
+			
+		RET
+			index
+	BEGIN
+		OUTER_SET index = "-1"
+		COPY_EXISTING ~savename.2da~ ~override~
+			PATCH_IF ( num_saves < 0 ) BEGIN SET num_saves = 1 END
+			COUNT_2DA_ROWS 4 num_rows
+			FOR ( i = 0 ; i < num_rows ; ++i ) BEGIN
+				READ_2DA_ENTRY i 0 4 val
+				PATCH_IF (!VARIABLE_IS_SET $values(~%val%~)) BEGIN
+					DEFINE_ASSOCIATIVE_ARRAY values BEGIN ~%val%~ => ~~ END
+				END
+			END //65535
+			FOR ( i = 0 ; i < 65535 ; ++i ) BEGIN
+				PATCH_IF (!VARIABLE_IS_SET $values(~%i%~)) BEGIN
+					PATCH_IF ( start < 0 ) BEGIN SET start = i END
+					INSERT_2DA_ROW i 4 ~%i%  %strref%  %start%  %num_saves%~
+					SET index = i
+					SET i = 65535 + 1
+				END
+			END
+			PRETTY_PRINT_2DA
+	END
+	//BLOCK REPLACE_MULTILINE
+//Patch function that replaces set or all occurrences of the given regexp pattern in the file with the given string.
+//Use EVAL to perform variable substitution on the string and/or the regexp pattern.
+//Unlike REPLACE_TEXTUALLY the pattern can be multi-line text, even without using regexp.
+//Just like REPLACE_BCS_BLOCK the function ignores pattern whitespace.
+//The function can be also used as a COUNT_REGEXP_INSTANCES alternative with the above mentioned features.
+//Optional PATCH_WARN message is printed if the task could not be performed (pattern not found or different amount of pattern matches than expected).
+
+DEFINE_PATCH_FUNCTION REPLACE_MULTILINE
+	INT_VAR
+		num = "-1"     //amount of times the pattern should be replaced with string (-1 by default which is at least 1 but without max limit)
+		strict = 0     //set to 1 to enable strict checking (auto escapes $^.*+?[]\ special characters)
+		verbose = 1    //set to 0 to skip printing patching message
+		warn = 1       //set to 0 to skip printing warning message if the function can't do what you ask it to do
+		only_count = 0 //set to to 1 to skip pattern replacing and just return num_matches (COUNT_REGEXP_INSTANCES alternative)
+	STR_VAR
+		pattern = ""   //pattern that you want to replace
+		string = ""    //string that the pattern will be replaced with
+	RET
+		num_matches    //amount of times the pattern has been found
+	BEGIN
+	TEXT_SPRINT percent ~%~
+	INNER_PATCH_SAVE textToReplace ~%pattern%~ BEGIN
+		PATCH_IF strict = 1 BEGIN
+			REPLACE_TEXTUALLY ~\\~ ~\\\\~
+			REPLACE_TEXTUALLY ~\[~ ~\[~
+			REPLACE_TEXTUALLY ~\]~ ~\]~
+			REPLACE_EVALUATE ~\([\$\^\.\*\+\?]\)~ BEGIN END ~\%MATCH1%~
+		END
+		REPLACE_TEXTUALLY ~[%WNL%%LNL%%MNL%%TAB% ]+~ ~[%WNL%%LNL%%MNL%%TAB% ]+~
+	END
+	SET num_matches = 0
+	PATCH_IF only_count = 0 BEGIN
+		REPLACE_EVALUATE CASE_INSENSITIVE ~%textToReplace%~ BEGIN
+			SET num_matches = num_matches + 1
+			INNER_PATCH_SAVE string ~%string%~ BEGIN
+				REPLACE_TEXTUALLY ~%percent%MATCH\([0-9]+\)%percent%~ ~%MATCH\1%~
+			END
+		END ~%string%~
+		SET warned = 0
+		PATCH_IF num_matches != num BEGIN
+			PATCH_IF num_matches = 0 BEGIN
+				PATCH_IF warn = 1 BEGIN
+					PATCH_WARN ~WARNING %SOURCE_FILESPEC% - pattern not found:%LNL%%pattern%~
+				END
+				SET warned = 1
+			END ELSE PATCH_IF num >= 0 AND (num_matches > num OR num_matches < num) BEGIN
+				PATCH_IF warn = 1 BEGIN
+					PATCH_WARN ~WARNING %SOURCE_FILESPEC% - pattern replaced %num_matches% time(s) instead of %num%:%LNL%%pattern%~
+				END
+				SET warned = 1
+			END
+		END
+		PATCH_IF verbose = 1 AND warned = 0 BEGIN
+			PATCH_PRINT ~Patching %SOURCE_FILESPEC% - pattern replaced %num_matches% time(s):%LNL%%pattern% => %string%~
+		END
+	END ELSE BEGIN
+		COUNT_REGEXP_INSTANCES ~%textToReplace%~ num_matches
+	END
+END
+//BLOCKEND
+END
+
+LANGUAGE ~Russian~
+	     ~ru_RU~
+	     ~how_eet/lang/ru_RU/dialog.tra~
+
+BEGIN ~Heart of Winter in Baldur's Gate Enhanced Edition (Trilogy)~
+REQUIRE_PREDICATE GAME_IS ~bgee sod eet~ ~Not compatible game.~
+REQUIRE_PREDICATE (VALID_SCRIPT_TRIGGERS ~Proficiency(Myself,PROFICIENCYLONGSWORD,1)~) ~Not compatible game.~
+
+OUTER_SPRINT newline ~%WNL%%LNL%%MNL%%TAB% ~
+OUTER_SPRINT slash ~/~
+OUTER_SPRINT quote ~"~
+OUTER_SPRINT tilde "~"
+OUTER_SPRINT MOD_FOLDER ~how_eet~
+
+OUTER_SET ~incl_sv_p~ = 0
+PRINT ~Patch existing save games:
+1. No.
+2. Yes.~
+ACTION_READLN incl_sv_p
+OUTER_WHILE NOT(IS_AN_INT %incl_sv_p%) || (%incl_sv_p% > 2) || (%incl_sv_p% < 1) BEGIN
+ PRINT ~Patch existing save games:
+1. No.
+2. Yes.~
+ ACTION_READLN incl_sv_p
+END
+OUTER_SET patch_save = incl_sv_p - 1
+
+
+//BLOCK JOURNAL
+ADD_JOURNAL TITLE (@2000029) @26302 @25836 @25837 @26298 @26299 @26300 @26295 @26321 @26329 @26333 @26297 @25430 @23560 @23561 @25432 @25425 @24882 @25428 @23527 @23553 @23550 @23549 @23533 @34118 @34114 @23540 @26331 @23537 @23538 @23536 @23543 @2000036
+ADD_JOURNAL TITLE (@2000030) @34107 @34106 @34105 @34093 @34091 @34089 @23563 @34110
+ADD_JOURNAL TITLE (@2000031) @23781 @32002 @23562 @34112 @23398 @34108 @34111
+ADD_JOURNAL TITLE (@2000032) @34099 @23548
+ADD_JOURNAL TITLE (@2000033) @25429 @25431 @25838 @25829 @25830 @25834 @25831 @25832 @25833 @25835 @26323 @26327 @23558 @23557 @23555 @23559
+ADD_JOURNAL TITLE (@2000034) @26325 @26326 @23534
+ADD_JOURNAL TITLE (@2000035) @23547 @23546 @23545 @23544 @23485
+//BLOCKEND
+
+INCLUDE ~%MOD_FOLDER%/lib/_musics.tph~
+
+APPEND ~CLASS.IDS~ ~219 ELEMENTAL_WATER~  UNLESS ~219 ELEMENTAL_WATER~
+APPEND ~CLASS.IDS~ ~224 SALAMANDER_FIRE~  UNLESS ~224 SALAMANDER_FIRE~
+APPEND ~CLASS.IDS~ ~225 SALAMANDER_FROST~ UNLESS ~225 SALAMANDER_FROST~
+APPEND ~CLASS.IDS~ ~226 REMORHAZ~         UNLESS ~226 REMORHAZ~
+APPEND ~CLASS.IDS~ ~227 GOLEM_ICE~        UNLESS ~227 GOLEM_ICE~
+APPEND ~CLASS.IDS~ ~228 BEETLE_RHINO~     UNLESS ~228 BEETLE_RHINO~
+APPEND ~CLASS.IDS~ ~229 ORC_RUNNER~       UNLESS ~229 ORC_RUNNER~
+APPEND ~CLASS.IDS~ ~230 TROLL_ICE~        UNLESS ~230 TROLL_ICE~
+APPEND ~CLASS.IDS~ ~231 SNOW_TROLL~       UNLESS ~231 SNOW_TROLL~
+
+APPEND ~RACE.IDS~ ~114 SIRINE~          UNLESS ~114 SIRINE~
+APPEND ~RACE.IDS~ ~186 DRAKE~           UNLESS ~186 DRAKE~
+APPEND ~RACE.IDS~ ~187 MANTICORE~       UNLESS ~187 MANTICORE~
+APPEND ~RACE.IDS~ ~189 SVIRFNEBLIN~     UNLESS ~189 SVIRFNEBLIN~
+APPEND ~RACE.IDS~ ~190 TANARI~          UNLESS ~190 TANARI~
+APPEND ~RACE.IDS~ ~191 CHICKEN~         UNLESS ~191 CHICKEN~
+APPEND ~RACE.IDS~ ~193 BARBARIAN~       UNLESS ~193 BARBARIAN~
+APPEND ~RACE.IDS~ ~194 POMAB_IMAGE~     UNLESS ~194 POMAB_IMAGE~
+APPEND ~RACE.IDS~ ~195 DJINNI~          UNLESS ~195 DJINNI~ 
+APPEND ~RACE.IDS~ ~196 DROW~            UNLESS ~196 DROW~
+APPEND ~RACE.IDS~ ~197 DWARF_UNDERDARK~ UNLESS ~197 DWARF_UNDERDARK~
+APPEND ~RACE.IDS~ ~198 SHAPESHIFTER~    UNLESS ~198 SHAPESHIFTER~
+APPEND ~RACE.IDS~ ~200 SUCCUBUS~        UNLESS ~200 SUCCUBUS~
+APPEND ~RACE.IDS~ ~175 SPECTRAL_UNDEAD~ UNLESS ~175 SPECTRAL_UNDEAD~
+APPEND ~RACE.IDS~ ~181 WILLOWISP~       UNLESS ~181 WILLOWISP~
+
+APPEND ~SPECIFIC.IDS~ ~103 PERSON_1~       UNLESS ~103 PERSON_1~
+APPEND ~SPECIFIC.IDS~ ~104 PERSON_2~       UNLESS ~104 PERSON_2~
+APPEND ~SPECIFIC.IDS~ ~105 PERSON_3~       UNLESS ~105 PERSON_3~
+APPEND ~SPECIFIC.IDS~ ~106 PERSON_4~       UNLESS ~106 PERSON_4~
+APPEND ~SPECIFIC.IDS~ ~107 PERSON_5~       UNLESS ~107 PERSON_5~
+APPEND ~SPECIFIC.IDS~ ~108 PERSON_6~       UNLESS ~108 PERSON_6~
+APPEND ~SPECIFIC.IDS~ ~109 PERSON_7~       UNLESS ~109 PERSON_7~
+APPEND ~SPECIFIC.IDS~ ~110 PERSON_8~       UNLESS ~110 PERSON_8~
+APPEND ~SPECIFIC.IDS~ ~111 PERSON_9~       UNLESS ~111 PERSON_9~
+APPEND ~SPECIFIC.IDS~ ~112 PERSON_10~      UNLESS ~112 PERSON_10~
+APPEND ~SPECIFIC.IDS~ ~113 SQUIRREL~       UNLESS ~113 SQUIRREL~
+APPEND ~SPECIFIC.IDS~ ~211 HARPY_DUEL~     UNLESS ~211 HARPY_DUEL~
+APPEND ~SPECIFIC.IDS~ ~212 WYVERN_DUEL~    UNLESS ~212 WYVERN_DUEL~
+APPEND ~SPECIFIC.IDS~ ~213 TROLL_DUEL~     UNLESS ~213 TROLL_DUEL~
+APPEND ~SPECIFIC.IDS~ ~214 MYCONID_DUEL~   UNLESS ~214 MYCONID_DUEL~
+APPEND ~SPECIFIC.IDS~ ~215 ORC_DUEL~       UNLESS ~215 ORC_DUEL~
+APPEND ~SPECIFIC.IDS~ ~216 MINOTAUR_DUEL~  UNLESS ~216 MINOTAUR_DUEL~
+APPEND ~SPECIFIC.IDS~ ~217 UMBERHULK_DUEL~ UNLESS ~217 UMBERHULK_DUEL~
+APPEND ~SPECIFIC.IDS~ ~218 GUARD_DUEL~     UNLESS ~218 GUARD_DUEL~
+APPEND ~SPECIFIC.IDS~ ~219 BEHOLDER_DUEL~  UNLESS ~219 BEHOLDER_DUEL~
+APPEND ~SPECIFIC.IDS~ ~220 JAKAL_1~        UNLESS ~220 JAKAL_1~
+APPEND ~SPECIFIC.IDS~ ~221 JAKAL_2~        UNLESS ~221 JAKAL_2~
+APPEND ~SPECIFIC.IDS~ ~222 JAKAL_3~        UNLESS ~222 JAKAL_3~
+APPEND ~SPECIFIC.IDS~ ~223 JAKAL_4~        UNLESS ~223 JAKAL_4~
+APPEND ~SPECIFIC.IDS~ ~230 TROLL_ICE~      UNLESS ~230 TROLL_ICE~
+APPEND ~SPECIFIC.IDS~ ~231 SNOW_TROLL~     UNLESS ~231 SNOW_TROLL~
+
+APPEND ~STATE.IDS~ ~0x00102029 STATE_HARMLESS~         UNLESS ~0x00102029 STATE_HARMLESS~
+APPEND ~STATE.IDS~ ~0x80040004 STATE_RANGED_TARGET~    UNLESS ~0x80040004 STATE_RANGED_TARGET~
+APPEND ~STATE.IDS~ ~0x8014202D STATE_OUT_OF_ACTION~    UNLESS ~0x8014202D STATE_OUT_OF_ACTION~
+APPEND ~STATE.IDS~ ~0x00400010 STATE_NOT_VISIBLE~      UNLESS ~0x00400010 STATE_NOT_VISIBLE~
+APPEND ~STATE.IDS~ ~0x60400010 STATE_ILLUSIONS~        UNLESS ~0x60400010 STATE_ILLUSIONS~
+APPEND ~STATE.IDS~ ~0x63C08010 STATE_ENCHANTED~        UNLESS ~0x63C08010 STATE_ENCHANTED~
+APPEND ~State.ids~ ~0x00000fc0 STATE_REALLY_DEAD~      UNLESS ~0x00000fc0 STATE_REALLY_DEAD~
+APPEND ~STATE.IDS~ ~0x80101FEF CD_STATE_NOTVALID~      UNLESS ~0x80101FEF CD_STATE_NOTVALID~
+
+APPEND ~invitem.ids~  ~10 NONSTEALABLE_NONDROPABLE~ UNLESS ~10 NONSTEALABLE_NONDROPABLE~
+APPEND ~wmpflag.ids~  ~5 VISIBLE_EXPLORABLE~        UNLESS  ~5 VISIBLE_EXPLORABLE~
+
+APPEND ~INSTANT.IDS~ ~376 DisplayStringNoNameDlg(O:Object*,I:StrRef*)~ UNLESS ~376 DisplayStringNoNameDlg~
+
+COPY_EXISTING ~action.ids~ ~override~
+	REPLACE_TEXTUALLY ~317 PlaySong(I:Song\*)~ ~317 PlaySong(I:Song*SONGLIST)~
+	BUT_ONLY_IF_IT_CHANGES
+
+APPEND ~SPELDESC.2DA~ ~SPPR101	19406
+SPPR108	19401
+SPPR201	19402
+SPPR214	19397
+SPPR308	19398~
+
+LAF APPEND_STATDESC_ENTRY INT_VAR strref=RESOLVE_STR_REF(@14727) STR_VAR bam_file="IDPHASE"  RET IDPHASE =index END
+LAF APPEND_STATDESC_ENTRY INT_VAR strref=RESOLVE_STR_REF(@14728) STR_VAR bam_file="IDPAIN"   RET IDPAIN  =index END
+LAF APPEND_STATDESC_ENTRY INT_VAR strref=14665                   STR_VAR bam_file="IDPETRIF" RET IDPETRIF=index END
+LAF APPEND_STATDESC_ENTRY INT_VAR strref=RESOLVE_STR_REF(@24384) STR_VAR bam_file="IDANIMRG" RET IDANIMRG=index END
+LAF APPEND_STATDESC_ENTRY INT_VAR strref=RESOLVE_STR_REF(@24381) STR_VAR bam_file="IDBLDRG"  RET IDBLDRG =index END
+
+COPY_EXISTING ~statdesc.2da~ ~override~
+	PRETTY_PRINT_2DA
+
+//BLOCK 2DA
+PRINT ~Installing *.2da files...~
+//BLOCK movies
+OUTER_SET XXX26767 = RESOLVE_STR_REF(@26767)
+OUTER_SET XXX26769 = RESOLVE_STR_REF(@26769)
+OUTER_SET XXX26770 = RESOLVE_STR_REF(@26770)
+OUTER_SET XXX26771 = RESOLVE_STR_REF(@26771)
+OUTER_SET XXX26774 = RESOLVE_STR_REF(@26774)
+OUTER_SET XXX26807 = RESOLVE_STR_REF(@26807)
+OUTER_SET XXX26796 = RESOLVE_STR_REF(@26796)
+OUTER_SET XXX26743 = RESOLVE_STR_REF(@26743)
+OUTER_SET XXX26803 = RESOLVE_STR_REF(@26803)
+OUTER_SET XXX26744 = RESOLVE_STR_REF(@26744)
+OUTER_SET XXX26798 = RESOLVE_STR_REF(@26798)
+OUTER_SET XXX26745 = RESOLVE_STR_REF(@26745)
+OUTER_SET XXX26746 = RESOLVE_STR_REF(@26746)
+OUTER_SET XXX26747 = RESOLVE_STR_REF(@26747)
+OUTER_SET XXX26748 = RESOLVE_STR_REF(@26748)
+OUTER_SET XXX26749 = RESOLVE_STR_REF(@26749)
+OUTER_SET XXX26750 = RESOLVE_STR_REF(@26750)
+OUTER_SET XXX26751 = RESOLVE_STR_REF(@26751)
+OUTER_SET XXX26804 = RESOLVE_STR_REF(@26804)
+OUTER_SET XXX26756 = RESOLVE_STR_REF(@26756)
+OUTER_SET XXX26805 = RESOLVE_STR_REF(@26805)
+OUTER_SET XXX26757 = RESOLVE_STR_REF(@26757)
+OUTER_SET XXX26758 = RESOLVE_STR_REF(@26758)
+OUTER_SET XXX26811 = RESOLVE_STR_REF(@26811)
+OUTER_SET XXX26759 = RESOLVE_STR_REF(@26759)
+OUTER_SET XXX26760 = RESOLVE_STR_REF(@26760)
+OUTER_SET XXX26806 = RESOLVE_STR_REF(@26806)
+OUTER_SET XXX26761 = RESOLVE_STR_REF(@26761)
+OUTER_SET XXX26762 = RESOLVE_STR_REF(@26762)
+OUTER_SET XXX26763 = RESOLVE_STR_REF(@26763)
+OUTER_SET XXX26764 = RESOLVE_STR_REF(@26764)
+OUTER_SET XXX26765 = RESOLVE_STR_REF(@26765)
+OUTER_SET XXX26766 = RESOLVE_STR_REF(@26766)
+OUTER_SET XXX26778 = RESOLVE_STR_REF(@26778)
+OUTER_SET XXX26780 = RESOLVE_STR_REF(@26780)
+OUTER_SET XXX26781 = RESOLVE_STR_REF(@26781)
+OUTER_SET XXX26809 = RESOLVE_STR_REF(@26809)
+OUTER_SET XXX26782 = RESOLVE_STR_REF(@26782)
+OUTER_SET XXX26785 = RESOLVE_STR_REF(@26785)
+OUTER_SET XXX26786 = RESOLVE_STR_REF(@26786)
+OUTER_SET XXX26775 = RESOLVE_STR_REF(@26775)
+OUTER_SET XXX26808 = RESOLVE_STR_REF(@26808)
+OUTER_SET XXX26776 = RESOLVE_STR_REF(@26776)
+OUTER_SET XXX26777 = RESOLVE_STR_REF(@26777)
+OUTER_SET XXX26800 = RESOLVE_STR_REF(@26800)
+OUTER_SET XXX26787 = RESOLVE_STR_REF(@26787)
+OUTER_SET XXX26788 = RESOLVE_STR_REF(@26788)
+OUTER_SET XXX26789 = RESOLVE_STR_REF(@26789)
+OUTER_SET XXX26790 = RESOLVE_STR_REF(@26790)
+OUTER_SET XXX26791 = RESOLVE_STR_REF(@26791)
+OUTER_SET XXX26792 = RESOLVE_STR_REF(@26792)
+OUTER_SET XXX26793 = RESOLVE_STR_REF(@26793)
+OUTER_SET XXX26794 = RESOLVE_STR_REF(@26794)
+OUTER_SET XXX26795 = RESOLVE_STR_REF(@26795)
+OUTER_SET XXX26810 = RESOLVE_STR_REF(@26810)
+
+OUTER_SPRINT ~XZ26737~ @26737
+OUTER_SET XXX26737 = RESOLVE_STR_REF(~^0xFF00CA00%XZ26737%^-~)
+OUTER_SPRINT ~XZ26738~ @26738
+OUTER_SET XXX26738 = RESOLVE_STR_REF(~^0xFF00CA00%XZ26738%^-~)
+OUTER_SPRINT ~XZ26739~ @26739
+OUTER_SET XXX26739 = RESOLVE_STR_REF(~^0xFF00CA00%XZ26739%^-~)
+OUTER_SPRINT ~XZ26740~ @26740
+OUTER_SET XXX26740 = RESOLVE_STR_REF(~^0xFF00CA00%XZ26740%^-~)
+OUTER_SPRINT ~XZ26741~ @26741
+OUTER_SET XXX26741 = RESOLVE_STR_REF(~^0xFF00CA00%XZ26741%^-~)
+OUTER_SPRINT ~XZ26802~ @26802
+OUTER_SET XXX26802 = RESOLVE_STR_REF(~^0xFF00CA00%XZ26802%^-~)
+OUTER_SPRINT ~XZ26742~ @26742
+OUTER_SET XXX26742 = RESOLVE_STR_REF(~^0xFF00CA00%XZ26742%^-~)
+OUTER_SPRINT ~XZ26729~ @26729
+OUTER_SET XXX26729 = RESOLVE_STR_REF(~^0xFF00CA00%XZ26729%^-~)
+OUTER_SPRINT ~XZ26730~ @26730
+OUTER_SET XXX26730 = RESOLVE_STR_REF(~^0xFF00CA00%XZ26730%^-~)
+OUTER_SPRINT ~XZ26731~ @26731
+OUTER_SET XXX26731 = RESOLVE_STR_REF(~^0xFF00CA00%XZ26731%^-~)
+OUTER_SPRINT ~XZ26732~ @26732
+OUTER_SET XXX26732 = RESOLVE_STR_REF(~^0xFF00CA00%XZ26732%^-~)
+OUTER_SPRINT ~XZ26733~ @26733
+OUTER_SET XXX26733 = RESOLVE_STR_REF(~^0xFF00CA00%XZ26733%^-~)
+OUTER_SPRINT ~XZ26734~ @26734
+OUTER_SET XXX26734 = RESOLVE_STR_REF(~^0xFF00CA00%XZ26734%^-~)
+OUTER_SPRINT ~XZ26735~ @26735
+OUTER_SET XXX26735 = RESOLVE_STR_REF(~^0xFF00CA00%XZ26735%^-~)
+OUTER_SPRINT ~XZ26736~ @26736
+OUTER_SET XXX26736 = RESOLVE_STR_REF(~^0xFF00CA00%XZ26736%^-~)
+OUTER_SPRINT ~XZ26801~ @26801
+OUTER_SET XXX26801 = RESOLVE_STR_REF(~^0xFF00CA00%XZ26801%^-~)
+
+
+COPY ~%MOD_FOLDER%/2da/HOWDRAG.2DA~  ~override~ EVALUATE_BUFFER
+	PRETTY_PRINT_2DA
+COPY ~%MOD_FOLDER%/2da/HOWSEER.2DA~  ~override~ EVALUATE_BUFFER
+	PRETTY_PRINT_2DA
+
+COPY_EXISTING ~bgee.lua~ ~override~
+	LPF REPLACE_MULTILINE
+		INT_VAR
+			num = 1
+			strict = 1
+		STR_VAR
+			pattern =      ~~~~~movies =
+{~~~~~
+			string  = EVAL ~~~~~movies =
+{
+	{ 'howdrag', 22, 175, %XXX26737%, 2, 1 },
+	{ 'howdrag', 195, 465, %XXX26738%, 2, 1 },
+	{ 'howdrag', 485, 745, %XXX26739%, 2, 1 },
+	{ 'howdrag', 765, 855, %XXX26740%, 2, 1 },
+	{ 'howdrag', 875, 1000, %XXX26741%, 2, 1 },
+	{ 'howdrag', 1020, 1225, %XXX26802%, 2, 1 },
+	{ 'howdrag', 1245, 1450, %XXX26742%, 2, 1 },
+	{ 'howdrag', 1470, 1490, %XXX26796%, 2, 1 },
+	
+	{ 'howseer', 10, 190, %XXX26729%, 2, 1 },
+	{ 'howseer', 210, 380, %XXX26730%, 2, 1 },
+	{ 'howseer', 400, 715, %XXX26731%, 2, 1 },
+	{ 'howseer', 735, 930, %XXX26732%, 2, 1 },
+	{ 'howseer', 950, 1060, %XXX26733%, 2, 1 },
+	{ 'howseer', 1080, 1315, %XXX26734%, 2, 1 },
+	{ 'howseer', 1335, 1555, %XXX26735%, 2, 1 },
+	{ 'howseer', 1575, 1705, %XXX26736%, 2, 1 },
+	{ 'howseer', 1725, 1960, %XXX26801%, 2, 1 },
+	{ 'howseer', 1980, 2000, %XXX26796%, 2, 1 },%LNL%~~~~~
+	END
+//BLOCKEND
+
+//BLOCK XPLIST
+APPEND ~XPLIST.2da~ ~ID1EX1E	    ID1EX1Easy	      P_100      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX1A	    ID1EX1Average	  P_135      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX1H	    ID1EX1Hard	      P_200      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX1V	    ID1EX1Very_Hard	  P_300      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX2E	    ID1EX2Easy	      P_140      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX2A	    ID1EX2Average	  P_195      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX2H	    ID1EX2Hard	      P_280      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX2V	    ID1EX2Very_Hard	  P_400      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX3E	    ID1EX3Easy	      P_200      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX3A	    ID1EX3Average	  P_285      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX3H	    ID1EX3Hard	      P_400      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX3V	    ID1EX3Very_Hard	  P_550      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX4E	    ID1EX4Easy	      P_280      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX4A	    ID1EX4Average	  P_405      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX4H	    ID1EX4Hard	      P_560      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX4V	    ID1EX4Very_Hard	  P_750      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX5E	    ID1EX5Easy	      P_380      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX5A	    ID1EX5Average	  P_555      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX5H	    ID1EX5Hard	      P_760      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX5V	    ID1EX5Very_Hard	  P_1000     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX6E	    ID1EX6Easy	      P_500      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX6A	    ID1EX6Average	  P_735      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX6H	    ID1EX6Hard	      P_1000     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX6V	    ID1EX6Very_Hard	  P_1300     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX7E	    ID1EX7Easy	      P_640      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX7A	    ID1EX7Average	  P_945      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX7H	    ID1EX7Hard	      P_1280     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX7V	    ID1EX7Very_Hard	  P_1650     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX8E	    ID1EX8Easy	      P_800      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX8A	    ID1EX8Average	  P_1185     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX8H	    ID1EX8Hard	      P_1600     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX8V	    ID1EX8Very_Hard	  P_2050     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX9E	    ID1EX9Easy	      P_980      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX9A	    ID1EX9Average	  P_1455     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX9H	    ID1EX9Hard	      P_1960     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX9V	    ID1EX9Very_Hard	  P_2500     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX10E	ID1EX10Easy	      P_1180     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX10A	ID1EX10Average	  P_1755     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX10H	ID1EX10Hard	      P_2360     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX10V	ID1EX10Very_Hard  P_3000     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX11E	ID1EX11Easy	      P_1400     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX11A	ID1EX11Average	  P_2085     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX11H	ID1EX11Hard	      P_2800     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX11V	ID1EX11Very_Hard  P_3550     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX12E	ID1EX12Easy	      P_1640     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX12A	ID1EX12Average	  P_2445     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX12H	ID1EX12Hard	      P_3280     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX12V	ID1EX12Very_Hard  P_4150     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX13E	ID1EX13Easy	      P_100      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX13A	ID1EX13Average	  P_100      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX13H	ID1EX13Hard	      P_100      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX13V	ID1EX13Very_Hard  P_100      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX14E	ID1EX14Easy	      P_100      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX14A	ID1EX14Average	  P_100      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX14H	ID1EX14Hard	      P_100      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1
+ID1EX14H	ID1EX14Hard	      P_100      -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1     -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1          -1~
+//BLOCKEND
+
+APPEND ~ITEMEXCL.2da~ ~PLAT06 1
+MantleCS 1
+DragArm 1
+Swanarm 1
+ChainBM 1
+Glimglm 1
+MailLif 1
+Elfchan 1
+Blood 1
+KayChai 1
+uring4b 1
+uring5a 1
+shplate 1
+usltr01 1
+usltr2a 1
+usltr4a 1
+usltr5a 1
+shldrng 1
+cloakmi 1
+ArmPen 1
+Glory 1
+Mirror2 1
+Plat04 1
+VexeD 1
+Vexed2 1
+Vexed3 1~
+
+APPEND ~MASTAREA.2da~ ~ID9100	value
+ID9101	value
+ID9104	value
+ID9200	value
+ID9201	value
+ID9300	value
+ID9301	value
+ID9400	value
+ID9500	value
+ID9600	value
+ID9603  value
+ID9604  value~
+
+APPEND ~MOVIDESC.2da~ ~HOWSEER		1000026587
+HOWDRAG		1000026700~
+COPY_EXISTING ~MOVIDESC.2da~ ~override~
+  REPLACE 1000026700 @26700
+  REPLACE 1000026587 @26587
+  PRETTY_PRINT_2DA
+
+APPEND ~TOOLTIP.2da~ ~NATURE            -1           100003235        100003236
+WANDARM           1000013025        1000013067       -1
+MantleHF          1000013047        1000013014       100004370
+Moonbow           100008945         1000013038       -1
+helmla            100009189         1000018586       100009191
+WandFre           10000926          1000012093       1000012062
+FangGF            -1           1000024331       100002419
+Tiernon           1000012122        1000012074       1000024738
+Mirror2           1000012016        1000012018       -1
+Dntshd2           -1           1000021405       -1
+Rogue             1000012015        1000012075       -1
+ULRing            1000012068        1000012069       1000012071
+Blast             1000021437        1000021427       -1
+vexed3            1000026723        100009206        -1
+sceptre           -1           100001867        1000022614 
+jhoswd3           -1           1000012116       1000012077  ~
+COPY_EXISTING ~TOOLTIP.2da~ ~override~
+  REPLACE 10000926   @926
+  REPLACE 100001867  @1867
+  REPLACE 100002419  @2419
+  REPLACE 100003235  @3235
+  REPLACE 100003236  @3236
+  REPLACE 100004370  @4370
+  REPLACE 100008945  @8945
+  REPLACE 100009189  @9189
+  REPLACE 100009191  @9191
+  REPLACE 100009206  @9206
+  REPLACE 1000012015 @12015
+  REPLACE 1000012016 @12016
+  REPLACE 1000012018 @12018
+  REPLACE 1000012062 @12062
+  REPLACE 1000012068 @12068
+  REPLACE 1000012069 @12069
+  REPLACE 1000012071 @12071
+  REPLACE 1000012074 @12074
+  REPLACE 1000012075 @12075
+  REPLACE 1000012077 @12077
+  REPLACE 1000012093 @12093
+  REPLACE 1000012116 @12116
+  REPLACE 1000012122 @12122
+  REPLACE 1000013014 @13014
+  REPLACE 1000013025 @13025
+  REPLACE 1000013038 @13038
+  REPLACE 1000013047 @13047
+  REPLACE 1000013067 @13067
+  REPLACE 1000018586 @18586
+  REPLACE 1000021405 @21405
+  REPLACE 1000021427 @21427
+  REPLACE 1000021437 @21437
+  REPLACE 1000022614 @22614
+  REPLACE 1000024331 @24331
+  REPLACE 1000024738 @24738
+  REPLACE 1000026723 @26723
+
+APPEND ~TRACKING.2da~ ~ID9100    10026567
+ID9101    10019534
+ID9102    10019534
+ID9103    10019534
+ID9104    10025779
+ID9105    10019534
+ID9106    10019534
+ID9107    10026581
+ID9108    10026570
+ID9109    10019534
+ID9110    10026571
+ID9200    10026572
+ID9201    10026573
+ID9300    10026574
+ID9400    10026577
+ID9500    10026578
+ID9501    10026579
+ID9502    10026580
+ID9600    10026589
+ID9601    10026582
+ID9602    10026583
+ID9603    10026584~
+COPY_EXISTING ~TRACKING.2da~ ~override~
+  REPLACE ~10019534~ @19534
+  REPLACE ~10025779~ @25779
+  REPLACE ~10026567~ @26567
+  REPLACE ~10026570~ @26570
+  REPLACE ~10026571~ @26571
+  REPLACE ~10026572~ @26572
+  REPLACE ~10026573~ @26573
+  REPLACE ~10026574~ @26574
+  REPLACE ~10026577~ @26577
+  REPLACE ~10026578~ @26578
+  REPLACE ~10026579~ @26579
+  REPLACE ~10026580~ @26580
+  REPLACE ~10026581~ @26581
+  REPLACE ~10026582~ @26582
+  REPLACE ~10026583~ @26583
+  REPLACE ~10026584~ @26584
+  REPLACE ~10026589~ @26589
+
+//BLOCK Save_Game
+LAF ADD_SAVE_GAME INT_VAR strref = RESOLVE_STR_REF (@666602) RET aStr = index END
+COPY ~%MOD_FOLDER%/baf/ID9100.baf~     ~%MOD_FOLDER%/baf~ REPLACE_TEXTUALLY ~SaveGame(0)~ ~SaveGame(%aStr%)~
+LAF ADD_SAVE_GAME INT_VAR strref = RESOLVE_STR_REF (@666603) RET aStr = index END
+COPY ~%MOD_FOLDER%/baf/ID9300.baf~     ~%MOD_FOLDER%/baf~ REPLACE_TEXTUALLY ~SaveGame(0)~ ~SaveGame(%aStr%)~
+LAF ADD_SAVE_GAME INT_VAR strref = RESOLVE_STR_REF (@666604) RET aStr = index END
+COPY ~%MOD_FOLDER%/baf/ID9500.baf~     ~%MOD_FOLDER%/baf~ REPLACE_TEXTUALLY ~SaveGame(0)~ ~SaveGame(%aStr%)~
+LAF ADD_SAVE_GAME INT_VAR strref = RESOLVE_STR_REF (@666605) RET aStr = index END
+COPY ~%MOD_FOLDER%/baf/ID9600.baf~     ~%MOD_FOLDER%/baf~ REPLACE_TEXTUALLY ~SaveGame(0)~ ~SaveGame(%aStr%)~
+//BLOCKEND
+
+//BLOCKEND
+
+COPY ~%MOD_FOLDER%/ini~ ~override~
+
+INCLUDE ~%MOD_FOLDER%/lib/_projectiles.tph~
+INCLUDE ~%MOD_FOLDER%/lib/_items.tph~
+INCLUDE ~%MOD_FOLDER%/lib/_spell.tph~
+INCLUDE ~%MOD_FOLDER%/lib/_areas.tph~
+INCLUDE ~%MOD_FOLDER%/lib/_stores.tph~
+INCLUDE ~%MOD_FOLDER%/lib/_creatures.tph~
+INCLUDE ~%MOD_FOLDER%/lib/_cheat_area.tph~
+
+ACTION_IF ( GAME_IS ~eet~ ) BEGIN
+	OUTER_SPRINT ~HjollderA~ ~BG1001~
+END ELSE BEGIN
+	OUTER_SPRINT ~HjollderA~ ~AR1001~
+END
+
+PRINT ~Compiling scripts...~
+COMPILE ~%MOD_FOLDER%/baf~ EVALUATE_BUFFER
+PRINT ~Compiling dialogues...~
+COMPILE ~%MOD_FOLDER%/dlg~
+
+
+COPY_EXISTING ~%HjollderA%.are~ ~override~
+	LPF add_area_cre_acti
+		INT_VAR
+			pos_x       =   710
+			pos_y       =   155
+			flags       =   9
+			anim        =   57927
+		STR_VAR
+			actor_name  = "Hjollder"
+			over_scr    = "IWHIDE1"
+			genr_scr    = "LWHJOLO"
+			clas_scr    = "EFPIKHST"
+			race_scr    = "EFMKENMY"
+			defl_scr    = "EFDLGMH"
+			cre_file    = "HJOLLDER"
+	END
+
+COPY ~%MOD_FOLDER%/VVC~ ~override~
+
+
+PRINT ~Installing movies...~
+
+COPY_LARGE ~%MOD_FOLDER%/IDMOVIE/HOWDRAG.wbm~  ~override~
+COPY_LARGE ~%MOD_FOLDER%/IDMOVIE/HOWSEER.wbm~  ~override~
+
+MKDIR ~lang/%LANGUAGE%/movies~
+COPY_LARGE ~%MOD_FOLDER%/IDMOVIE/HOWDRAG.wbm~  ~lang/%LANGUAGE%/movies~
+COPY_LARGE ~%MOD_FOLDER%/IDMOVIE/HOWSEER.wbm~  ~lang/%LANGUAGE%/movies~
+
+PRINT ~Patching Worldmap...~
+INCLUDE ~%MOD_FOLDER%/lib/_worldmap.tph~
+
+PRINT ~Copying game resources...~
+COPY ~%MOD_FOLDER%/biffs/IDANBARB~ ~override~
+COPY ~%MOD_FOLDER%/biffs/IDANGIAN~ ~override~
+COPY ~%MOD_FOLDER%/biffs/IDANHUMN~ ~override~
+COPY ~%MOD_FOLDER%/biffs/IDANMBAM~ ~override~
+COPY ~%MOD_FOLDER%/biffs/IDANMONS~ ~override~
+COPY ~%MOD_FOLDER%/biffs/IDAR9100~ ~override~
+COPY ~%MOD_FOLDER%/biffs/IDAR9200~ ~override~
+COPY ~%MOD_FOLDER%/biffs/IDAR9300~ ~override~
+COPY ~%MOD_FOLDER%/biffs/IDAR9500~ ~override~
+COPY ~%MOD_FOLDER%/biffs/IDAR9600~ ~override~
+COPY ~%MOD_FOLDER%/biffs/IDDLGSN1~ ~override~
+COPY ~%MOD_FOLDER%/biffs/IDDLGSN2~ ~override~
+COPY ~%MOD_FOLDER%/biffs/IDLOCBAM~ ~override~
+COPY ~%MOD_FOLDER%/biffs/IDMONSND~ ~override~
+COPY ~%MOD_FOLDER%/biffs/IDWAV01~  ~override~
+COPY ~%MOD_FOLDER%/biffs/IDWAV03~  ~override~
+
+INCLUDE ~%MOD_FOLDER%/iwd_ee_res/iwd_ee_res.tph~
+//INCLUDE ~%MOD_FOLDER%/lib/_other.tph~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
