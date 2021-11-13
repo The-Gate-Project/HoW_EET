@@ -340,9 +340,12 @@ END
 LANGUAGE ~Russian~
 	     ~ru_RU~
 	     ~how_eet/lang/ru_RU/dialog.tra~
+LANGUAGE ~English~
+	     ~en_US~
+	     ~how_eet/lang/en_US/dialog.tra~
 
 BEGIN ~Heart of Winter in Baldur's Gate Enhanced Edition (Trilogy)~
-REQUIRE_PREDICATE GAME_IS ~bgee sod eet~ ~Not compatible game.~
+REQUIRE_PREDICATE ( GAME_IS ~bgee~ AND GAME_INCLUDES ~sod~ ) OR ( GAME_IS ~eet~ ) ~Not compatible game.~
 REQUIRE_PREDICATE (VALID_SCRIPT_TRIGGERS ~Proficiency(Myself,PROFICIENCYLONGSWORD,1)~) ~Not compatible game.~
 
 OUTER_SPRINT newline ~%WNL%%LNL%%MNL%%TAB% ~
