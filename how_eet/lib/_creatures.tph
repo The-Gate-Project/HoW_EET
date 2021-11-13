@@ -1,0 +1,506 @@
+PRINT ~Installing Creatures files...~
+SILENT
+
+COPY ~%MOD_FOLDER%/creatures/WTYETI.cre~ ~override~ //++
+    SAY 0x8 @8551
+    SAY 0xc @8550
+COPY ~%MOD_FOLDER%/creatures/BIKNIGHT.cre~ ~override~
+    SAY 0x8 @18880
+    SAY 0xc @18575
+COPY ~%MOD_FOLDER%/creatures/WINWOLF.cre~ ~override~ //++
+    SAY 0x8 @8774
+    SAY 0xc @8775
+COPY ~%MOD_FOLDER%/creatures/PURVISH.cre~ ~override~
+    SAY 0x8 @21828
+    SAY 0xc @21853
+COPY ~%MOD_FOLDER%/creatures/ALPHEUSD.cre~ ~override~
+    SAY 0x8 @26494
+    SAY 0xc @17719
+COPY ~%MOD_FOLDER%/creatures/MERCTHF.cre~ ~override~
+    SAY 0x8 @26497
+    SAY 0xc @26250
+COPY ~%MOD_FOLDER%/creatures/MERCWAR2.cre~ ~override~
+    SAY 0x8 @26496
+    SAY 0xc @26505
+COPY ~%MOD_FOLDER%/creatures/MERCWAR1.cre~ ~override~
+    SAY 0x8 @26496
+    SAY 0xc @26505
+COPY ~%MOD_FOLDER%/creatures/PSHAR.cre~ ~override~
+    SAY 0x8 @26495
+    SAY 0xc @26249
+COPY ~%MOD_FOLDER%/creatures/ALPHEUS.cre~ ~override~
+    SAY 0x8 @26494
+    SAY 0xc @17719
+COPY ~%MOD_FOLDER%/creatures/VAARGLAN.cre~ ~override~
+    SAY 0x8 @26501
+    SAY 0xc @7943
+COPY ~%MOD_FOLDER%/creatures/WEREWLF.cre~ ~override~
+    SAY 0x8 @22782
+    SAY 0xc @22783
+COPY ~%MOD_FOLDER%/creatures/YOUNGNED.cre~ ~override~
+    SAY 0x8 @21824
+    SAY 0xc @21849
+COPY ~%MOD_FOLDER%/creatures/DIGBY.cre~ ~override~
+    SAY 0x8 @21825
+    SAY 0xc @21850
+COPY ~%MOD_FOLDER%/creatures/JEMEL.cre~ ~override~
+    SAY 0x8 @21835
+    SAY 0xc @21860
+COPY ~%MOD_FOLDER%/creatures/KARRL.cre~ ~override~
+    SAY 0x8 @21834
+    SAY 0xc @21859
+COPY ~%MOD_FOLDER%/creatures/RAWLEIGH.cre~ ~override~
+    SAY 0x8 @21655
+    SAY 0xc @21841
+COPY ~%MOD_FOLDER%/creatures/HAILEE.cre~ ~override~
+    SAY 0x8 @21832
+    SAY 0xc @21857
+COPY ~%MOD_FOLDER%/creatures/EMMRCHH.cre~ ~override~
+    SAY 0x8 @21820
+    SAY 0xc @21843
+COPY ~%MOD_FOLDER%/creatures/ROALD.cre~ ~override~
+    SAY 0x8 @21819
+    SAY 0xc @21842
+COPY ~%MOD_FOLDER%/creatures/MURDAUGH.cre~ ~override~
+    SAY 0x8 @19543
+    SAY 0xc @21657
+COPY ~%MOD_FOLDER%/creatures/KIERAN.cre~ ~override~
+    SAY 0x8 @19542
+    SAY 0xc @21656
+COPY ~%MOD_FOLDER%/creatures/AMBERE.cre~ ~override~
+    SAY 0x8 @21831
+    SAY 0xc @21856
+COPY ~%MOD_FOLDER%/creatures/BEDD1.cre~ ~override~
+    SAY 0x8 @12808
+    SAY 0xc @12801
+COPY ~%MOD_FOLDER%/creatures/QUINN.cre~ ~override~
+    SAY 0x8 @21829
+    SAY 0xc @21854
+COPY ~%MOD_FOLDER%/creatures/EMMERICH.cre~ ~override~
+    SAY 0x8 @21820
+    SAY 0xc @21843
+COPY ~%MOD_FOLDER%/creatures/HAILEEH.cre~ ~override~
+    SAY 0x8 @21832
+    SAY 0xc @21857
+COPY ~%MOD_FOLDER%/creatures/AMBEREH.cre~ ~override~
+    SAY 0x8 @21831
+    SAY 0xc @21856
+COPY ~%MOD_FOLDER%/creatures/TYBALD.cre~ ~override~
+    SAY 0x8 @21830
+    SAY 0xc @21855
+COPY ~%MOD_FOLDER%/creatures/ARDEN.cre~ ~override~
+    SAY 0x8 @21822
+    SAY 0xc @21845
+COPY ~%MOD_FOLDER%/creatures/BALDEMAR.cre~ ~override~
+    SAY 0x8 @21821
+    SAY 0xc @21844
+COPY ~%MOD_FOLDER%/creatures/DOOGAL.cre~ ~override~
+    SAY 0x8 @21827
+    SAY 0xc @21852
+COPY ~%MOD_FOLDER%/creatures/DOLAN.cre~ ~override~
+    SAY 0x8 @21826
+    SAY 0xc @21851
+COPY ~%MOD_FOLDER%/creatures/THOM.cre~ ~override~
+    SAY 0x8 @21823
+    SAY 0xc @21848
+COPY ~%MOD_FOLDER%/creatures/PURVIS.cre~ ~override~
+    SAY 0x8 @21828
+    SAY 0xc @21853
+COPY ~%MOD_FOLDER%/creatures/VAARGLND.cre~ ~override~
+    SAY 0x8 @26501
+    SAY 0xc @7943
+COPY ~%MOD_FOLDER%/creatures/PSHARD.cre~ ~override~
+    SAY 0x8 @26495
+    SAY 0xc @26249
+COPY ~%MOD_FOLDER%/creatures/MERCTHFD.cre~ ~override~
+    SAY 0x8 @26497
+    SAY 0xc @26250
+COPY ~%MOD_FOLDER%/creatures/MERCWR1D.cre~ ~override~
+    SAY 0x8 @26496
+    SAY 0xc @26505
+COPY ~%MOD_FOLDER%/creatures/MERCWR2D.cre~ ~override~
+    SAY 0x8 @26496
+    SAY 0xc @26505
+COPY ~%MOD_FOLDER%/creatures/ARDEND.cre~ ~override~
+    SAY 0x8 @21822
+    SAY 0xc @21845
+COPY ~%MOD_FOLDER%/creatures/BALDEMAD.cre~ ~override~
+    SAY 0x8 @21821
+    SAY 0xc @21844
+COPY ~%MOD_FOLDER%/creatures/BAR3MCE.cre~ ~override~
+    SAY 0x8 @26849
+    SAY 0xc @26845
+COPY ~%MOD_FOLDER%/creatures/BAR2HMR.cre~ ~override~
+    SAY 0x8 @26850
+    SAY 0xc @26846
+COPY ~%MOD_FOLDER%/creatures/BAR1MCE.cre~ ~override~
+    SAY 0x8 @26848
+    SAY 0xc @26711
+COPY ~%MOD_FOLDER%/creatures/BAR3AXE.cre~ ~override~
+    SAY 0x8 @26849
+    SAY 0xc @26845
+COPY ~%MOD_FOLDER%/creatures/BAR2AXE.cre~ ~override~
+    SAY 0x8 @26850
+    SAY 0xc @26846
+COPY ~%MOD_FOLDER%/creatures/BAR1AXE.cre~ ~override~
+    SAY 0x8 @26848
+    SAY 0xc @26711
+COPY ~%MOD_FOLDER%/creatures/DBAR3.cre~ ~override~
+    SAY 0x8 @24765
+    SAY 0xc @24766
+COPY ~%MOD_FOLDER%/creatures/DBAR5.cre~ ~override~
+    SAY 0x8 @24765
+    SAY 0xc @24766
+COPY ~%MOD_FOLDER%/creatures/DBAR6.cre~ ~override~
+    SAY 0x8 @24765
+    SAY 0xc @24766
+COPY ~%MOD_FOLDER%/creatures/DBAR1.cre~ ~override~
+    SAY 0x8 @24765
+    SAY 0xc @24766
+COPY ~%MOD_FOLDER%/creatures/DBAR4.cre~ ~override~
+    SAY 0x8 @24765
+    SAY 0xc @24766
+COPY ~%MOD_FOLDER%/creatures/DBAR2.cre~ ~override~
+    SAY 0x8 @24765
+    SAY 0xc @24766
+COPY ~%MOD_FOLDER%/creatures/BAR1SWD.cre~ ~override~
+    SAY 0x8 @26848
+    SAY 0xc @26711
+COPY ~%MOD_FOLDER%/creatures/BAR3SWD.cre~ ~override~
+    SAY 0x8 @26849
+    SAY 0xc @26845
+COPY ~%MOD_FOLDER%/creatures/BAR2SWD.cre~ ~override~
+    SAY 0x8 @26850
+    SAY 0xc @26846
+COPY ~%MOD_FOLDER%/creatures/HJOLLDER.cre~ ~override~
+    SAY 0x8 @21833
+    SAY 0xc @21858
+COPY ~%MOD_FOLDER%/creatures/HJOLLDRH.cre~ ~override~
+    SAY 0x8 @21833
+    SAY 0xc @21858
+COPY ~%MOD_FOLDER%/creatures/JORN.cre~ ~override~
+    SAY 0x8 @24761
+    SAY 0xc @24762
+COPY ~%MOD_FOLDER%/creatures/BEORNEN.cre~ ~override~
+    SAY 0x8 @24763
+    SAY 0xc @24764
+COPY ~%MOD_FOLDER%/creatures/ANGAAR.cre~ ~override~
+    SAY 0x8 @24394
+    SAY 0xc @24760
+COPY ~%MOD_FOLDER%/creatures/SEERCUT.cre~ ~override~
+    SAY 0x8 @25029
+    SAY 0xc @25037
+COPY ~%MOD_FOLDER%/creatures/WYLFDENE.cre~ ~override~
+    SAY 0x8 @24808
+    SAY 0xc @24809
+COPY ~%MOD_FOLDER%/creatures/SHAMGN.cre~ ~override~
+    SAY 0x8 @21839
+    SAY 0xc @21864
+COPY ~%MOD_FOLDER%/creatures/DROWNED.cre~ ~override~
+    SAY 0x8 @21838
+    SAY 0xc @21863
+COPY ~%MOD_FOLDER%/creatures/SHAMGHO.cre~ ~override~
+    SAY 0x8 @21839
+    SAY 0xc @21864
+COPY ~%MOD_FOLDER%/creatures/WIGHTBA.cre~ ~override~
+    SAY 0x8 @24390
+    SAY 0xc @24392
+COPY ~%MOD_FOLDER%/creatures/WSPIR.cre~ ~override~
+    SAY 0x8 @24395
+    SAY 0xc @21867
+COPY ~%MOD_FOLDER%/creatures/BBSPIR.cre~ ~override~
+    SAY 0x8 @24388
+    SAY 0xc @24393
+COPY ~%MOD_FOLDER%/creatures/PBSPIR.cre~ ~override~
+    SAY 0x8 @24387
+    SAY 0xc @21866
+COPY ~%MOD_FOLDER%/creatures/SKALDAR.cre~ ~override~
+    SAY 0x8 @24391
+    SAY 0xc @21865
+COPY ~%MOD_FOLDER%/creatures/EDION.cre~ ~override~
+    SAY 0x8 @24389
+    SAY 0xc @21868
+COPY ~%MOD_FOLDER%/creatures/WVIRGIN.cre~ ~override~
+    SAY 0x8 @21836
+    SAY 0xc @21861
+COPY ~%MOD_FOLDER%/creatures/WVIRGINN.cre~ ~override~
+    SAY 0x8 @21836
+    SAY 0xc @21861
+COPY ~%MOD_FOLDER%/creatures/VEXING.cre~ ~override~
+    SAY 0x8 @25031
+    SAY 0xc @25036
+COPY ~%MOD_FOLDER%/creatures/MEBDING.cre~ ~override~
+    SAY 0x8 @21837
+    SAY 0xc @21862
+COPY ~%MOD_FOLDER%/creatures/RBIBARR.cre~ ~override~
+    SAY 0x8 @24390
+    SAY 0xc @24392
+COPY ~%MOD_FOLDER%/creatures/RBIDROW.cre~ ~override~
+    SAY 0x8 @21838
+    SAY 0xc @21863
+COPY ~%MOD_FOLDER%/creatures/TROLLSNO.cre~ ~override~
+    SAY 0x8 @858
+    SAY 0xc @10981
+COPY ~%MOD_FOLDER%/creatures/GIANTFRO.cre~ ~override~
+    SAY 0x8 @787
+    SAY 0xc @826
+COPY ~%MOD_FOLDER%/creatures/FROSTSAL.cre~ ~override~
+    SAY 0x8 @851
+    SAY 0xc @870
+COPY ~%MOD_FOLDER%/creatures/BEARPOLR.cre~ ~override~
+    SAY 0x8 @9345
+    SAY 0xc @9346
+COPY ~%MOD_FOLDER%/creatures/SALAMANF.cre~ ~override~
+    SAY 0x8 @851
+    SAY 0xc @870
+COPY ~%MOD_FOLDER%/creatures/BEARPOLD.cre~ ~override~
+    SAY 0x8 @9345
+    SAY 0xc @9346
+COPY ~%MOD_FOLDER%/creatures/REMORHA.cre~ ~override~
+    SAY 0x8 @24771
+    SAY 0xc @24769
+COPY ~%MOD_FOLDER%/creatures/REMORHH.cre~ ~override~
+    SAY 0x8 @24771
+    SAY 0xc @24769
+COPY ~%MOD_FOLDER%/creatures/TIERNON.cre~ ~override~
+    SAY 0x8 @25030
+    SAY 0xc @25035
+COPY ~%MOD_FOLDER%/creatures/GOLEMIC.cre~ ~override~
+    SAY 0x8 @24772
+    SAY 0xc @24770
+COPY ~%MOD_FOLDER%/creatures/REMORHAS.cre~ ~override~
+    SAY 0x8 @24771
+    SAY 0xc @24769
+COPY ~%MOD_FOLDER%/creatures/SEER.cre~ ~override~
+    SAY 0x8 @25029
+    SAY 0xc @25037
+COPY ~%MOD_FOLDER%/creatures/RNDFSAL.cre~ ~override~
+    SAY 0x8 @851
+    SAY 0xc @870
+COPY ~%MOD_FOLDER%/creatures/RNDWWOLF.cre~ ~override~
+    SAY 0x8 @8774
+    SAY 0xc @8775
+COPY ~%MOD_FOLDER%/creatures/RNDSTROL.cre~ ~override~
+    SAY 0x8 @858
+    SAY 0xc @10981
+COPY ~%MOD_FOLDER%/creatures/RNDREMOR.cre~ ~override~
+    SAY 0x8 @24771
+    SAY 0xc @24769
+COPY ~%MOD_FOLDER%/creatures/RNDIGOLM.cre~ ~override~
+    SAY 0x8 @24772
+    SAY 0xc @24770
+COPY ~%MOD_FOLDER%/creatures/DLBAR3S.cre~ ~override~
+    SAY 0x8 @26849
+    SAY 0xc @26845
+COPY ~%MOD_FOLDER%/creatures/DLBAR1S.cre~ ~override~
+    SAY 0x8 @26848
+    SAY 0xc @26711
+COPY ~%MOD_FOLDER%/creatures/DLBAR3M.cre~ ~override~
+    SAY 0x8 @26849
+    SAY 0xc @26845
+COPY ~%MOD_FOLDER%/creatures/DLBAR3A.cre~ ~override~
+    SAY 0x8 @26849
+    SAY 0xc @26845
+COPY ~%MOD_FOLDER%/creatures/DLBAR1M.cre~ ~override~
+    SAY 0x8 @26848
+    SAY 0xc @26711
+COPY ~%MOD_FOLDER%/creatures/DLBAR1A.cre~ ~override~
+    SAY 0x8 @26848
+    SAY 0xc @26711
+COPY ~%MOD_FOLDER%/creatures/DLICETR.cre~ ~override~
+    SAY 0x8 @8549
+    SAY 0xc @8548
+COPY ~%MOD_FOLDER%/creatures/DLSNOTR.cre~ ~override~
+    SAY 0x8 @25809
+    SAY 0xc @25810
+COPY ~%MOD_FOLDER%/creatures/DLSCRAG.cre~ ~override~
+    SAY 0x8 @25807
+    SAY 0xc @25808
+COPY ~%MOD_FOLDER%/creatures/BERGCLAW.cre~ ~override~
+    SAY 0x8 @25811
+    SAY 0xc @25812
+COPY ~%MOD_FOLDER%/creatures/DLGOLEM.cre~ ~override~
+    SAY 0x8 @24772
+    SAY 0xc @24770
+COPY ~%MOD_FOLDER%/creatures/DLYETI.cre~ ~override~
+    SAY 0x8 @25825
+    SAY 0xc @25826
+COPY ~%MOD_FOLDER%/creatures/DLBONEC.cre~ ~override~
+    SAY 0x8 @26241
+    SAY 0xc @26248
+COPY ~%MOD_FOLDER%/creatures/DLWATER.cre~ ~override~
+    SAY 0x8 @26500
+    SAY 0xc @26504
+COPY ~%MOD_FOLDER%/creatures/XACTILE.cre~ ~override~
+    SAY 0x8 @25034
+    SAY 0xc @25052
+COPY ~%MOD_FOLDER%/creatures/DLBNEGRD.cre~ ~override~
+    SAY 0x8 @854
+    SAY 0xc @873
+COPY ~%MOD_FOLDER%/creatures/DLICESWD.cre~ ~override~
+    SAY 0x8 @26239
+    SAY 0xc @26247
+COPY ~%MOD_FOLDER%/creatures/DLICEHND.cre~ ~override~
+    SAY 0x8 @26239
+    SAY 0xc @26247
+COPY ~%MOD_FOLDER%/creatures/DLICEAXE.cre~ ~override~
+    SAY 0x8 @26239
+    SAY 0xc @26247
+COPY ~%MOD_FOLDER%/creatures/DLFZNBNE.cre~ ~override~
+    SAY 0x8 @26303
+    SAY 0xc @26307
+COPY ~%MOD_FOLDER%/creatures/DLCLDSWD.cre~ ~override~
+    SAY 0x8 @26238
+    SAY 0xc @26246
+COPY ~%MOD_FOLDER%/creatures/DLCLDMCE.cre~ ~override~
+    SAY 0x8 @26238
+    SAY 0xc @26246
+COPY ~%MOD_FOLDER%/creatures/DLCLDHND.cre~ ~override~
+    SAY 0x8 @26238
+    SAY 0xc @26246
+COPY ~%MOD_FOLDER%/creatures/DLCLDAXE.cre~ ~override~
+    SAY 0x8 @26238
+    SAY 0xc @26246
+COPY ~%MOD_FOLDER%/creatures/SAWARBW.cre~ ~override~
+    SAY 0x8 @3091
+    SAY 0xc @3092
+COPY ~%MOD_FOLDER%/creatures/SACLERBW.cre~ ~override~
+    SAY 0x8 @3091
+    SAY 0xc @3092
+COPY ~%MOD_FOLDER%/creatures/SAUMBER.cre~ ~override~
+    SAY 0x8 @26499
+    SAY 0xc @26503
+COPY ~%MOD_FOLDER%/creatures/SAGOLEM.cre~ ~override~
+    SAY 0x8 @24772
+    SAY 0xc @24770
+COPY ~%MOD_FOLDER%/creatures/SACLER.cre~ ~override~
+    SAY 0x8 @3091
+    SAY 0xc @3092
+COPY ~%MOD_FOLDER%/creatures/SACLERSP.cre~ ~override~
+    SAY 0x8 @3091
+    SAY 0xc @3092
+COPY ~%MOD_FOLDER%/creatures/SAWAR.cre~ ~override~
+    SAY 0x8 @3091
+    SAY 0xc @3092
+COPY ~%MOD_FOLDER%/creatures/SAWARSP.cre~ ~override~
+    SAY 0x8 @3091
+    SAY 0xc @3092
+COPY ~%MOD_FOLDER%/creatures/SAEGUARD.cre~ ~override~
+    SAY 0x8 @25381
+    SAY 0xc @25382
+COPY ~%MOD_FOLDER%/creatures/SAPRINCE.cre~ ~override~
+    SAY 0x8 @31089
+    SAY 0xc @31090
+COPY ~%MOD_FOLDER%/creatures/SAGRDM.cre~ ~override~
+    SAY 0x8 @31086
+    SAY 0xc @31087
+COPY ~%MOD_FOLDER%/creatures/SARUNPR.cre~ ~override~
+    SAY 0x8 @25379
+    SAY 0xc @25380
+COPY ~%MOD_FOLDER%/creatures/SARGUARD.cre~ ~override~
+    SAY 0x8 @31086
+    SAY 0xc @31087
+COPY ~%MOD_FOLDER%/creatures/SARPRIES.cre~ ~override~
+    SAY 0x8 @31093
+    SAY 0xc @31094
+COPY ~%MOD_FOLDER%/creatures/SAKING.cre~ ~override~
+    SAY 0x8 @31091
+    SAY 0xc @31092
+COPY ~%MOD_FOLDER%/creatures/DLSGEM.cre~ ~override~
+    SAY 0x8 @26447
+    SAY 0xc @26452
+COPY ~%MOD_FOLDER%/creatures/ICASA.cre~ ~override~
+    SAY 0x8 @25385
+    SAY 0xc @25386
+COPY ~%MOD_FOLDER%/creatures/RNDSAWAR.cre~ ~override~
+    SAY 0x8 @3091
+    SAY 0xc @3092
+COPY ~%MOD_FOLDER%/creatures/VEXING3.cre~ ~override~
+    SAY 0x8 @25032
+    SAY 0xc @25050
+COPY ~%MOD_FOLDER%/creatures/VEXING4.cre~ ~override~
+    SAY 0x8 @25032
+    SAY 0xc @25050
+COPY ~%MOD_FOLDER%/creatures/VEXING2.cre~ ~override~
+    SAY 0x8 @25032
+    SAY 0xc @25050
+COPY ~%MOD_FOLDER%/creatures/BERSERK.cre~ ~override~
+    SAY 0x8 @17752
+    SAY 0xc @17749
+COPY ~%MOD_FOLDER%/creatures/BKNIGHT.cre~ ~override~
+    SAY 0x8 @17754
+    SAY 0xc @2869
+    ADD_CRE_ITEM ~BDCONSTR~ #0 #0 #0 ~NONE~ ~LRING~
+COPY ~%MOD_FOLDER%/creatures/WBISHOP.cre~ ~override~
+    SAY 0x8 @2870
+    SAY 0xc @2870
+    ADD_CRE_ITEM ~BDCONSTR~ #0 #0 #0 ~NONE~ ~LRING~
+COPY ~%MOD_FOLDER%/creatures/EMMRCHD.cre~ ~override~
+    SAY 0x8 @21820
+    SAY 0xc @21843
+COPY ~%MOD_FOLDER%/creatures/SAUMBER2.cre~ ~override~
+    SAY 0x8 @26499
+    SAY 0xc @26503
+COPY ~%MOD_FOLDER%/creatures/WOLFE.cre~ ~override~
+    SAY 0x8 @6629
+    SAY 0xc @8769
+COPY ~%MOD_FOLDER%/creatures/COPSPIR.cre~ ~override~
+    SAY 0x8 @25033
+    SAY 0xc @25051
+
+COPY ~%MOD_FOLDER%/creatures/IDGOLS1.cre~ ~override~
+     ~%MOD_FOLDER%/creatures/IDGOLS2.cre~ ~override~
+     WRITE_ASCII 0x248 ~IDGOLREM~
+<<<<<<<<IDGOLREM.baf
+IF
+	GlobalTimerExpired("DestroyTimer","LOCALS")
+THEN
+	RESPONSE #100
+		DestroySelf()
+END
+
+IF
+	Global("DestroyTimer","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobalTimer("DestroyTimer","LOCALS",3)
+END
+>>>>>>>>
+COMPILE ~IDGOLREM.baf~
+
+COPY_EXISTING ~cutspy.cre~ ~override/idcutspy.cre~
+	WRITE_ASCII 0x280 ~idcutspy~ (32)
+	LPF ADD_CRE_EFFECT INT_VAR opcode=262 timing=1 parameter1=2 parameter2=1 END
+	
+
+ACTION_FOR_EACH file IN SHAMGHO SHAMGN SKALDAR BEGIN
+	ACTION_IF FILE_EXISTS ~override/%file%.cre~ BEGIN
+		COPY ~override/%file%.cre~ ~override~
+			ADD_KNOWN_SPELL ~sppr506~ #4 ~priest~
+			ADD_KNOWN_SPELL ~sppr503~ #4 ~priest~
+			ADD_KNOWN_SPELL ~sppr517~ #4 ~priest~
+			ADD_KNOWN_SPELL ~sppr310~ #2 ~priest~
+			ADD_MEMORIZED_SPELL ~sppr506~ #4 ~priest~ (1)
+			ADD_MEMORIZED_SPELL ~sppr503~ #4 ~priest~ (1)
+			ADD_MEMORIZED_SPELL ~sppr517~ #4 ~priest~ (1)
+			ADD_MEMORIZED_SPELL ~sppr310~ #2 ~priest~ (1)
+	END
+END
+
+VERBOSE
+PRINT ~Creatures installation complete...~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

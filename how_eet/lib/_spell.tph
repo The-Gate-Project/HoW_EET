@@ -1,0 +1,369 @@
+PRINT ~Installing spells...~
+SILENT
+
+COPY ~%MOD_FOLDER%/spl/IDMXHPS.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN181.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN973.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDWI023.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDWI021.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN993.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDSETHP1.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDSTHP25.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN984.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN987.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDWI014.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDWI019.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDWI017.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDWI016.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN972.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN995.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN996.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN994.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN989.SPL~ ~override~
+     //~%MOD_FOLDER%/spl/IDWI024.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN149.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN150.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN153.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDWI404.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN157.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN155.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN162.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDWI022.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN160.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN158.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN165.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN174.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN168.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN172.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN170.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN171.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN175.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN173.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN169.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN167.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN167A.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDWI020.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDWI805.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN180.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN178.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN177.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDWI599.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDWI899.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDWI598.SPL~ ~override~
+     //~%MOD_FOLDER%/spl/IDIN187.SPL~ ~override~
+     //~%MOD_FOLDER%/spl/IDIN187.SPL~ ~override/IDIN188.SPL~
+     ~%MOD_FOLDER%/spl/IDIN986.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDTRLREG.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDPR608B.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDPR608C.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDWI619B.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN977.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN976.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDWI304A.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDWI304B.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDINVIS.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDINVIS1.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDINVIS3.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDRINVS.SPL~ ~override~
+     //~%MOD_FOLDER%/spl/IDINVUL.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDINVIS4.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDINVIS5.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDINVIS6.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDRINVUL.SPL~ ~override~
+     //~%MOD_FOLDER%/spl/#evasion.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/#JEDSLP.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDWI417X.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN163.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDWI511X.SPL~ ~override~
+     //~%MOD_FOLDER%/spl/IDRM517.SPL~ ~override~
+     
+COPY ~%MOD_FOLDER%/spl/IDRM517.SPL~ ~override~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode=17 power=3 target=2 parameter1=100 parameter2=2 timing=1 resist_dispel=2 dicesize=8 END
+     
+COPY ~%MOD_FOLDER%/spl/IDRM517.SPL~ ~override/IDRM516.spl~
+	LPF DELETE_SPELL_EFFECT INT_VAR opcode_to_delete=172 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode=17 power=3 target=2 parameter1=100 parameter2=2 timing=1 resist_dispel=2 dicesize=8 END
+
+COPY ~%MOD_FOLDER%/spl/IDIN187.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN187.SPL~ ~override/IDIN188.SPL~
+  WRITE_LONG 0x08 "-1"
+     
+
+COPY ~%MOD_FOLDER%/spl/IDWI024.SPL~ ~override~
+  //WRITE_LONG 0xd2 ~%IDPETRIF%~
+COPY ~%MOD_FOLDER%/spl/IDINVUL.SPL~ ~override~
+  WRITE_LONG 0x1122 ~%IDPETRIF%~
+/**/
+
+COPY ~%MOD_FOLDER%/spl/IDPR608.SPL~ ~override~
+  SAY 0x08 @2840
+  SAY 0x50 @8055
+  WRITE_SHORT 0x98 ~%idpro271%~
+
+COPY ~%MOD_FOLDER%/spl/IDIN974.SPL~ ~override~
+  WRITE_SHORT 0x98 ~%idpro297%~
+
+COPY ~%MOD_FOLDER%/spl/IDIN991.SPL~ ~override~
+  WRITE_SHORT 0x98 ~%idpro284%~
+
+COPY ~%MOD_FOLDER%/spl/IDIN979.SPL~ ~override~
+  WRITE_SHORT 0x98 ~%idpro294%~
+
+COPY ~%MOD_FOLDER%/spl/IDIN985.SPL~ ~override~
+  WRITE_SHORT 0x98 ~%idpro246%~
+
+COPY ~%MOD_FOLDER%/spl/IDWI220.SPL~ ~override~
+  SAY 0x08 @12093
+  SAY 0x50 @6393
+  WRITE_SHORT 0x98 ~%idpro217%~
+
+COPY ~%MOD_FOLDER%/spl/IDPR399.SPL~ ~override~
+  SAY 0x08 @899
+
+COPY ~%MOD_FOLDER%/spl/IDPR398.SPL~ ~override~
+  SAY 0x08 @1207
+
+COPY ~%MOD_FOLDER%/spl/IDIN998.SPL~ ~override~
+  SAY 0x08 @4362
+
+COPY ~%MOD_FOLDER%/spl/IDIN999.SPL~ ~override~
+  SAY 0x08 @3261
+
+COPY ~%MOD_FOLDER%/spl/IDIN997.SPL~ ~override~
+  SAY 0x08 @4363
+  WRITE_SHORT 0x98 ~%idpro234%~
+
+COPY ~%MOD_FOLDER%/spl/IDIN971.SPL~ ~override~
+  WRITE_SHORT 0x98 ~%idpro296%~
+
+COPY ~%MOD_FOLDER%/spl/IDIN983.SPL~ ~override~
+  WRITE_SHORT 0x98 ~%idpro286%~
+
+COPY ~%MOD_FOLDER%/spl/IDIN990.SPL~ ~override~
+  WRITE_SHORT 0x98 ~%idpro285%~
+
+COPY ~%MOD_FOLDER%/spl/IDIN992.SPL~ ~override~
+  WRITE_SHORT 0x98 ~%idpro283%~
+
+COPY ~%MOD_FOLDER%/spl/IDIN133.SPL~ ~override~
+  SAY 0x08 @21442
+
+COPY ~%MOD_FOLDER%/spl/IDIN140.SPL~ ~override~
+  SAY 0x08 @25041
+  WRITE_SHORT 0x98 ~%idpro345%~
+
+COPY ~%MOD_FOLDER%/spl/IDIN138.SPL~ ~override~
+  SAY 0x08 @24731
+  WRITE_SHORT 0x98 ~%idpro342%~
+
+COPY ~%MOD_FOLDER%/spl/IDIN136.SPL~ ~override~
+  SAY 0x08 @24735
+
+COPY ~%MOD_FOLDER%/spl/IDIN137.SPL~ ~override~
+  SAY 0x08 @24734
+  WRITE_SHORT 0x98 ~%idpro323%~
+
+COPY ~%MOD_FOLDER%/spl/IDIN134.SPL~ ~override~
+  SAY 0x08 @24737
+  WRITE_SHORT 0x98 ~%idpro320%~
+
+COPY ~%MOD_FOLDER%/spl/IDIN135.SPL~ ~override~
+  SAY 0x08 @24736
+  WRITE_SHORT 0x98 ~%idpro321%~
+
+COPY ~%MOD_FOLDER%/spl/IDWI619.SPL~ ~override~
+  SAY 0x08 @21432
+  SAY 0x50 @21461
+  WRITE_SHORT 0x98 ~%idpro299%~
+
+COPY ~%MOD_FOLDER%/spl/IDWI612.SPL~ ~override~
+  SAY 0x08 @12130
+  SAY 0x50 @7552
+  WRITE_SHORT 0x98 ~%idpro269%~
+
+COPY ~%MOD_FOLDER%/spl/IDWI318.SPL~ ~override~
+  SAY 0x08 @926
+  SAY 0x50 @6399
+  WRITE_SHORT 0x98 ~%idpro251%~
+
+COPY ~%MOD_FOLDER%/spl/IDIN161.SPL~ ~override~
+  WRITE_SHORT 0x98 ~%idpro349%~
+
+COPY ~%MOD_FOLDER%/spl/IDIN154.SPL~ ~override~
+  SAY 0x08 @26442
+
+COPY ~%MOD_FOLDER%/spl/IDIN159.SPL~ ~override~
+  SAY 0x08 @26661
+
+COPY ~%MOD_FOLDER%/spl/IDPR613.SPL~ ~override~
+  SAY 0x08 @21398
+  SAY 0x50 @21472
+
+COPY ~%MOD_FOLDER%/spl/IDIN186.SPL~ ~override~
+  WRITE_SHORT 0x98 ~%idpro230%~
+
+COPY ~%MOD_FOLDER%/spl/IDIN185.SPL~ ~override~
+  WRITE_SHORT 0x98 ~%idpro354%~
+
+COPY ~%MOD_FOLDER%/spl/IDIN184.SPL~ ~override~
+  WRITE_SHORT 0x98 ~%idpro353%~
+
+COPY ~%MOD_FOLDER%/spl/IDIN182.SPL~ ~override~
+  WRITE_SHORT 0x98 ~%idpro351%~
+
+COPY ~%MOD_FOLDER%/spl/IDPR111.SPL~ ~override~
+  SAY 0x08 @757
+  SAY 0x50 @7903
+  WRITE_SHORT 0x98 ~%idpro237%~
+
+COPY ~%MOD_FOLDER%/spl/IDPR113.SPL~ ~override~
+  SAY 0x08 @21425
+  SAY 0x50 @21479
+  WRITE_SHORT 0x98 ~%idpro000%~
+
+COPY ~%MOD_FOLDER%/spl/IDPR415.SPL~ ~override~
+  SAY 0x08 @21403
+  SAY 0x50 @24810
+  WRITE_LONG 0x2b2 ~%IDBLDRG%~
+
+COPY ~%MOD_FOLDER%/spl/IDIN978.SPL~ ~override~
+  SAY 0x08 @17899
+
+COPY ~%MOD_FOLDER%/spl/IDWI707.SPL~ ~override~
+  SAY 0x08 @1416
+  SAY 0x50 @7576
+  WRITE_SHORT 0x98 ~%idpro209%~
+
+COPY ~%MOD_FOLDER%/spl/IDWI904.SPL~ ~override~
+  SAY 0x08 @5711
+  WRITE_SHORT 0x98 ~%idpro279%~
+
+COPY ~%MOD_FOLDER%/spl/IDITM99.SPL~ ~override~
+  SAY 0x08 @1418
+
+COPY ~%MOD_FOLDER%/spl/IDWI511.SPL~ ~override~
+  SAY 0x08 @1954
+  SAY 0x50 @7516
+COPY ~%MOD_FOLDER%/spl/IDWI511Y.SPL~ ~override~
+  WRITE_SHORT 0x98 ~%idshrflm%~
+
+COPY ~%MOD_FOLDER%/spl/IDWI419.SPL~ ~override~
+  SAY 0x08 @1848
+  SAY 0x50 @7510
+  WRITE_SHORT 0x98 ~%idpro255%~
+
+COPY ~%MOD_FOLDER%/spl/IDPR323.SPL~ ~override~
+  SAY 0x08 @21422
+  SAY 0x50 @24255
+
+COPY ~%MOD_FOLDER%/spl/IDWI601.SPL~ ~override~
+  SAY 0x08 @2419
+  SAY 0x50 @7538
+
+COPY ~%MOD_FOLDER%/spl/IDPR419.SPL~ ~override~
+  SAY 0x08 @21405
+  SAY 0x50 @24248
+
+COPY ~%MOD_FOLDER%/spl/IDPR714.SPL~ ~override~
+  SAY 0x08 @2938
+  SAY 0x50 @8099
+  SAY 0x1ee @18628
+  WRITE_LONG 0x1f2 ~%IDPAIN%~
+
+COPY ~%MOD_FOLDER%/spl/IDWI418.SPL~ ~override~
+  SAY 0x08 @1866
+  SAY 0x50 @6515
+
+COPY ~%MOD_FOLDER%/spl/IDWI417.SPL~ ~override~
+  SAY 0x08 @1865
+  SAY 0x50 @6513
+
+COPY ~%MOD_FOLDER%/spl/IDITM06.SPL~ ~override~
+  SAY 0x08 @21439
+  SAY 0x50 @24812
+  WRITE_SHORT 0x98 ~%idpro313%~
+
+COPY ~%MOD_FOLDER%/spl/IDWI806.SPL~ ~override~
+  SAY 0x08 @21427
+  SAY 0x50 @21470
+  WRITE_SHORT 0x98 ~%idpro319%~
+
+COPY ~%MOD_FOLDER%/spl/IDPR516.SPL~ ~override~
+  SAY 0x08 @21401
+  SAY 0x50 @24247
+  WRITE_SHORT 0x98 ~%idpro310%~
+
+COPY ~%MOD_FOLDER%/spl/IDWI423.SPL~ ~override~
+  SAY 0x08 @21437
+  SAY 0x50 @21468
+  WRITE_SHORT 0x98 ~%idpro315%~
+
+COPY ~%MOD_FOLDER%/spl/IDWI516.SPL~ ~override~
+  SAY 0x08 @2693
+  SAY 0x50 @7536
+
+COPY ~%MOD_FOLDER%/spl/IDPR517.SPL~ ~override~
+  SAY 0x08 @21402
+  SAY 0x50 @24251
+  WRITE_LONG 0x162 ~%IDANIMRG%~
+
+COPY ~%MOD_FOLDER%/spl/IDIN975.SPL~ ~override~
+  WRITE_SHORT 0x98 ~%idpro288%~
+
+COPY ~%MOD_FOLDER%/spl/IDIN994X.SPL~ ~override~
+  WRITE_SHORT 0x98 ~%idpro281%~
+  SAY 0xce @100058
+
+COPY ~%MOD_FOLDER%/spl/IDIN165X.SPL~ ~override~
+  SAY 0x08 @26936
+  WRITE_SHORT 0x98 ~%idpro405%~
+
+COPY ~%MOD_FOLDER%/spl/IDIN178X.SPL~ ~override~
+  WRITE_SHORT 0x98 ~%idpro402%~
+  SAY 0x1be @26939
+
+COPY ~%MOD_FOLDER%/spl/IDWI517.SPL~ ~override~
+  SAY 0x08 @21434
+  SAY 0x50 @24244
+/**/
+
+COPY ~%MOD_FOLDER%/spl/IDIN995X.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN996X.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN989X.SPL~ ~override~
+     ~%MOD_FOLDER%/spl/IDIN155X.SPL~ ~override~
+  WRITE_SHORT 0x98 ~%idpro001%~
+
+COPY ~%MOD_FOLDER%/spl/eff_string/IDIN995.eff~ ~override/IDIN995.eff~
+     ~%MOD_FOLDER%/spl/eff_string/IDIN995.eff~ ~override/IDIN996.eff~
+     ~%MOD_FOLDER%/spl/eff_string/IDIN995.eff~ ~override/IDIN989.eff~
+     ~%MOD_FOLDER%/spl/eff_string/IDIN995.eff~ ~override/IDIN155.eff~
+	WRITE_EVALUATED_ASCII 0x30 ~%DEST_RES%X~ (8)
+/* AURA */
+
+COPY ~%MOD_FOLDER%/spl/eff_nostring~ ~override~
+
+VERBOSE
+PRINT ~Spells installation complete...~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

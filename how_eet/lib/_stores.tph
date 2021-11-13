@@ -1,0 +1,107 @@
+PRINT ~Installing stores...~
+SILENT
+
+
+COPY ~%MOD_FOLDER%/sto/emmeric.sto~ ~override~
+  SAY 0x00c @18701
+
+COPY ~%MOD_FOLDER%/sto/kieran1.sto~ ~override~
+  SAY 0x00c @26221
+  SAY 0x0b8 @131
+  SAY 0x0cc @129
+  SAY 0x108 @130
+  SAY 0x11c @26650
+
+COPY ~%MOD_FOLDER%/sto/kieran3.sto~ ~override~
+  SAY 0x00c @26221
+
+COPY ~%MOD_FOLDER%/sto/kieran2.sto~ ~override~
+  SAY 0x00c @21871
+  ADD_STORE_ITEM ~IDWI517X~ #1 #1 #1 ~IDENTIFIED~ #2
+
+COPY_EXISTING ~scrl1m.itm~ ~override/IDWI517X.itm~
+	SAY 0x0c @21434
+	SAY 0x54 @24244
+	WRITE_ASCII 0x3a  ~IDWI517A~ (8)
+	WRITE_ASCII 0x76  ~IDWI517B~ (8)
+	WRITE_ASCII 0xf6  ~IDWI517~  (8)
+	WRITE_ASCII 0xae  ~IDWI517B~ (8)
+	WRITE_ASCII 0x126 ~IDWI517~  (8)
+
+COPY ~%MOD_FOLDER%/sto/waukeen.sto~ ~override~
+  SAY 0x00c @21870
+
+COPY ~%MOD_FOLDER%/sto/djorn.sto~ ~override~
+  SAY 0x00c @26697
+
+COPY ~%MOD_FOLDER%/sto/edion.sto~ ~override~
+  SAY 0x00c @21869
+  REMOVE_STORE_ITEM scrlar scrl9j scrl9u
+
+COPY ~%MOD_FOLDER%/sto/tiernon.sto~ ~override~
+  SAY 0x00c @24587
+
+COPY ~%MOD_FOLDER%/sto/xactile.sto~ ~override~
+  SAY 0x00c @26698
+
+COPY ~%MOD_FOLDER%/sto/BAGH01.sto~  ~override/BAGH01.sto~
+     ~%MOD_FOLDER%/sto/BAGH02.sto~  ~override/BAGH02.sto~
+  WRITE_SHORT 0x22 999
+COPY ~%MOD_FOLDER%/sto/GEMBG01.sto~ ~override/GEMBG01.sto~
+     ~%MOD_FOLDER%/sto/GEMBG01.sto~ ~override/GEMBG02.sto~
+     ~%MOD_FOLDER%/sto/GEMBG01.sto~ ~override/GEMBG03.sto~
+     ~%MOD_FOLDER%/sto/GEMBG01.sto~ ~override/GEMBG04.sto~
+     ~%MOD_FOLDER%/sto/GEMBG01.sto~ ~override/GEMBG05.sto~
+     ~%MOD_FOLDER%/sto/GEMBG01.sto~ ~override/GEMBG06.sto~
+     ~%MOD_FOLDER%/sto/GEMBG01.sto~ ~override/GEMBG07.sto~
+     ~%MOD_FOLDER%/sto/GEMBG01.sto~ ~override/GEMBG08.sto~
+     ~%MOD_FOLDER%/sto/PTNBG01.sto~ ~override/PTNBG01.sto~
+     ~%MOD_FOLDER%/sto/PTNBG01.sto~ ~override/PTNBG02.sto~
+     ~%MOD_FOLDER%/sto/PTNBG01.sto~ ~override/PTNBG03.sto~
+     ~%MOD_FOLDER%/sto/PTNBG01.sto~ ~override/PTNBG04.sto~
+     ~%MOD_FOLDER%/sto/PTNBG01.sto~ ~override/PTNBG05.sto~
+     ~%MOD_FOLDER%/sto/PTNBG01.sto~ ~override/PTNBG06.sto~
+     ~%MOD_FOLDER%/sto/PTNBG01.sto~ ~override/PTNBG07.sto~
+     ~%MOD_FOLDER%/sto/PTNBG01.sto~ ~override/PTNBG08.sto~
+     ~%MOD_FOLDER%/sto/PTNBG01.sto~ ~override/PTNBG09.sto~
+     ~%MOD_FOLDER%/sto/PTNBG01.sto~ ~override/PTNBG10.sto~
+     ~%MOD_FOLDER%/sto/SCRCS01.sto~ ~override/SCRCS01.sto~
+     ~%MOD_FOLDER%/sto/SCRCS01.sto~ ~override/SCRCS02.sto~
+     ~%MOD_FOLDER%/sto/SCRCS01.sto~ ~override/SCRCS03.sto~
+     ~%MOD_FOLDER%/sto/SCRCS01.sto~ ~override/SCRCS04.sto~
+     ~%MOD_FOLDER%/sto/SCRCS01.sto~ ~override/SCRCS05.sto~
+     ~%MOD_FOLDER%/sto/SCRCS01.sto~ ~override/SCRCS06.sto~
+     ~%MOD_FOLDER%/sto/SCRCS01.sto~ ~override/SCRCS07.sto~
+     ~%MOD_FOLDER%/sto/SCRCS01.sto~ ~override/SCRCS08.sto~
+     ~%MOD_FOLDER%/sto/SCRCS01.sto~ ~override/SCRCS09.sto~
+     ~%MOD_FOLDER%/sto/SCRCS01.sto~ ~override/SCRCS10.sto~
+  WRITE_SHORT 0x22 100
+
+COPY ~override/BAGH01.sto~ ~override/BAGH03.sto~
+     ~override/BAGH01.itm~ ~override/BAGH03.itm~
+
+VERBOSE
+PRINT ~Stores installation complete...~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

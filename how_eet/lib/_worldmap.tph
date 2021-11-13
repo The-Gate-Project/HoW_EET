@@ -1,0 +1,127 @@
+OUTER_SET wmp_xCoord_SoA = 0
+OUTER_SET wmp_yCoord_SoA = 0
+
+<<<<<<<<wmp.l
+@iwd9100 = "str9100"
+@iwd9200 = "str9200"
+@iwd9300 = "str9300"
+@iwd9500 = "str9500"
+@iwd9600 = "str9600"
+>>>>>>>>
+
+OUTER_SPRINT rep9100 @3069
+OUTER_SPRINT rep9200 @10923
+OUTER_SPRINT rep9300 @15757
+OUTER_SPRINT rep9500 @19729
+OUTER_SPRINT rep9600 @10925
+
+OUTER_INNER_PATCH_SAVE rep9100 ~%rep9100%~ BEGIN     REPLACE_TEXTUALLY ~ ~ ~###~ END
+OUTER_INNER_PATCH_SAVE rep9200 ~%rep9200%~ BEGIN     REPLACE_TEXTUALLY ~ ~ ~###~ END
+OUTER_INNER_PATCH_SAVE rep9300 ~%rep9300%~ BEGIN     REPLACE_TEXTUALLY ~ ~ ~###~ END
+OUTER_INNER_PATCH_SAVE rep9500 ~%rep9500%~ BEGIN     REPLACE_TEXTUALLY ~ ~ ~###~ END
+OUTER_INNER_PATCH_SAVE rep9600 ~%rep9600%~ BEGIN     REPLACE_TEXTUALLY ~ ~ ~###~ END
+
+COPY ~wmp.l~ ~%MOD_FOLDER%/lang/%LANGUAGE%/worldmap.tra~
+    REPLACE_TEXTUALLY ~str9100~ ~%rep9100%~ EVALUATE_BUFFER
+    REPLACE_TEXTUALLY ~str9200~ ~%rep9200%~ EVALUATE_BUFFER
+    REPLACE_TEXTUALLY ~str9300~ ~%rep9300%~ EVALUATE_BUFFER
+    REPLACE_TEXTUALLY ~str9500~ ~%rep9500%~ EVALUATE_BUFFER
+    REPLACE_TEXTUALLY ~str9600~ ~%rep9600%~ EVALUATE_BUFFER
+
+ACTION_IF ( GAME_IS ~eet~ ) BEGIN
+	OUTER_SET ~icon9100~ = 146
+	OUTER_SET ~X9100~    = 740
+	OUTER_SET ~Y9100~    = 95
+	OUTER_SET ~icon9200~ = 147
+	OUTER_SET ~X9200~    = 850
+	OUTER_SET ~Y9200~    = 145
+	OUTER_SET ~icon9300~ = 148
+	OUTER_SET ~X9300~    = 645
+	OUTER_SET ~Y9300~    = 100
+	OUTER_SET ~icon9500~ = 150
+	OUTER_SET ~X9500~    = 910
+	OUTER_SET ~Y9500~    = 55
+	OUTER_SET ~icon9600~ = 151
+	OUTER_SET ~X9600~    = 390
+	OUTER_SET ~Y9600~    = 95
+END ELSE BEGIN
+	INCLUDE ~%MOD_FOLDER%/worldmap/add_map_icons.tpa~
+	ACTION_FOR_EACH numb IN 9100 9200 9300 9500 9600 BEGIN
+		LAF ADD_MAP_ICONS
+		  STR_VAR
+		    path_to_icons = EVAL ~%MOD_FOLDER%/Worldmap/icons/icon%numb%.bam~
+		  RET
+		    new_icon_index
+		END
+		OUTER_SET EVAL ~icon%numb%~ = new_icon_index
+	END
+	OUTER_SET ~X9100~    = 168
+	OUTER_SET ~Y9100~    = 193
+	OUTER_SET ~X9200~    = 255
+	OUTER_SET ~Y9200~    = 123
+	OUTER_SET ~X9300~    = 95
+	OUTER_SET ~Y9300~    = 271
+	OUTER_SET ~X9500~    = 533
+	OUTER_SET ~Y9500~    = 97
+	OUTER_SET ~X9600~    = 103
+	OUTER_SET ~Y9600~    = 93
+END
+
+COPY ~%MOD_FOLDER%/Worldmap/areas.tbl~ ~%MOD_FOLDER%/Worldmap/areas_X.tbl~ EVALUATE_BUFFER
+
+INCLUDE ~%MOD_FOLDER%/lib/add_worldmap_tbl.tpa~
+LAF ADD_WORLDMAP_TBL
+	INT_VAR
+    	inclSv = patch_save
+    	add_x = wmp_xCoord_SoA
+    	add_y = wmp_yCoord_SoA
+	STR_VAR
+    	path_to_areas = EVAL ~%MOD_FOLDER%/Worldmap/areas_X.tbl~
+    	path_to_links = EVAL ~%MOD_FOLDER%/Worldmap/links.tbl~
+    	path_to_trans = EVAL ~%MOD_FOLDER%/lang/%LANGUAGE%/worldmap.tra~
+END
+
+OUTER_SET ~icon9100~ = 146
+OUTER_SET ~X9100~    = 600
+OUTER_SET ~Y9100~    = 125
+OUTER_SET ~icon9200~ = 147
+OUTER_SET ~X9200~    = 700
+OUTER_SET ~Y9200~    = 90
+OUTER_SET ~icon9300~ = 148
+OUTER_SET ~X9300~    = 540
+OUTER_SET ~Y9300~    = 290
+OUTER_SET ~icon9500~ = 150
+OUTER_SET ~X9500~    = 905
+OUTER_SET ~Y9500~    = 65
+OUTER_SET ~icon9600~ = 151
+OUTER_SET ~X9600~    = 580
+OUTER_SET ~Y9600~    = 40
+
+COPY ~%MOD_FOLDER%/Worldmap/areas.tbl~ ~%MOD_FOLDER%/Worldmap/areas_Y.tbl~ EVALUATE_BUFFER
+ACTION_IF FILE_EXISTS ~Worldmap/map_mods_areas.tbl~ THEN BEGIN
+	COPY ~Worldmap/map_mods_areas.tbl~  ~Worldmap~
+		APPEND_FILE_EVALUATE ~%MOD_FOLDER%/Worldmap/areas_Y.tbl~
+	COPY ~Worldmap/map_mods_links.tbl~  ~Worldmap~
+		APPEND_FILE_EVALUATE ~%MOD_FOLDER%/Worldmap/links.tbl~
+	COPY ~Worldmap/map_mods_trans.tra~  ~Worldmap~
+		APPEND_FILE_EVALUATE ~%MOD_FOLDER%/lang/%LANGUAGE%/worldmap.tra~
+END ELSE BEGIN
+	MKDIR ~Worldmap~
+	COPY ~%MOD_FOLDER%/Worldmap/areas_Y.tbl~         ~Worldmap/map_mods_areas.tbl~
+    COPY ~%MOD_FOLDER%/Worldmap/links.tbl~           ~Worldmap/map_mods_links.tbl~
+    COPY ~%MOD_FOLDER%/lang/%LANGUAGE%/worldmap.tra~ ~Worldmap/map_mods_trans.tra~
+  END
+
+
+
+
+
+
+
+
+
+
+
+
+
+

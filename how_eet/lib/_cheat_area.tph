@@ -1,0 +1,35 @@
+ACTION_IF FILE_EXISTS_IN_GAME ~bgee.lua~ BEGIN
+	ACTION_IF ( GAME_IS ~eet~ ) BEGIN
+		OUTER_SPRINT ~repl_text~ ~{"OH3000", "Cloud Peaks"},~
+	END ELSE BEGIN
+		OUTER_SPRINT ~repl_text~ ~{"OH3100", "Rasaad - Dark Moon temple, interior"},~
+	END
+	COPY_EXISTING ~bgee.lua~ ~override/bgee.lua~
+		REPLACE_TEXTUALLY ~%repl_text%~ ~%repl_text%
+	--IWD HoW Areas
+	{"ID9100", "Lonelywood"},
+	{"ID9101", "Lonelywood - Whistling Gallows - first floor"},
+	{"ID9102", "Lonelywood - Whistling Gallows - second floor"},
+	{"ID9103", "Lonelywood - Temple of Waukeen"},
+	{"ID9104", "Lonelywood - Home of Emmerich"},
+	{"ID9105", "Lonelywood - Dunn home"},
+	{"ID9106", "Lonelywood - Thurlow home - first floor"},
+	{"ID9107", "Lonelywood - Thurlow home - second floor"},
+	{"ID9108", "Lonelywood - Home of trappers"},
+	{"ID9109", "Lonelywood - Home of Farold"},
+	{"ID9110", "Lonelywood - Home of Purvis"},
+	{"ID9200", "Barbarian camp"},
+	{"ID9201", "Barbarian camp - Mead Hall"},
+	{"ID9300", "Burial Isle"},
+	{"ID9301", "Burial Isle - Tower of Edion"},
+	{"ID9400", "Burial Isle - Wylfdene's barrow"},
+	{"ID9500", "Gloomfrost"},
+	{"ID9501", "Gloomfrost interior - first level, Tiernon"},
+	{"ID9502", "Gloomfrost interior - second level, Seer"},
+	{"ID9600", "Sea of Moving Ice"},
+	{"ID9601", "Sea of Moving Ice - cave entrance"},
+	{"ID9602", "Sea of Moving Ice - Field of Bones"},
+	{"ID9603", "Sea of Moving Ice - Icasaracht lair exterior"},
+	{"ID9604", "Sea of Moving Ice - Icasaracht lair interior"},~
+
+END
