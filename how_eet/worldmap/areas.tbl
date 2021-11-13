@@ -1,0 +1,10 @@
+
+SHORT_NAME  CONTENT  LONG_NAME  FLAGS  BAM_ANIM  X_POS  Y_POS  NAME         TOOLTIP      LOAD_IM
+
+ID9100      ID9100   ID9100     0      %icon9100%       %X9100%    %Y9100%     @iwd9100     @iwd9100     N        // Лонливуд
+ID9200      ID9200   ID9200     0      %icon9200%       %X9200%    %Y9200%    @iwd9200     @iwd9200     N        // Лагерь Варваров
+ID9300      ID9300   ID9300     0      %icon9300%       %X9300%    %Y9300%    @iwd9300     @iwd9300     N        // Погребальный остров
+ID9500      ID9500   ID9500     0      %icon9500%       %X9500%    %Y9500%     @iwd9500     @iwd9500     N        // Темный ледник
+ID9600      ID9600   ID9600     0      %icon9600%       %X9600%    %Y9600%     @iwd9600     @iwd9600     N        // Море Движущихся Льдов
+
+

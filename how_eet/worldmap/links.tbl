@@ -1,0 +1,12 @@
+
+SRC_AREA  SRC_NWSE  TARGET_ARE  ENTRY_NAME  TRV_TIME  DEF_ENTRY  ENC1     ENC2     ENC3     ENC4     ENC5     ENC_PROB
+
+ID9100    E         ID9200      FRWMAP      4         8          N        N        N        N        N        5
+ID9100    E         ID9500      FRWMAP      20        4          N        N        N        N        N        5
+
+ID9200    W         ID9100      FRWMAP      4         2          N        N        N        N        N        5
+ID9200    W         ID9500      FRWMAP      20        4          N        N        N        N        N        5
+
+ID9500    S         ID9100      FRWMAP      20        2          N        N        N        N        N        5
+ID9500    S         ID9200      FRWMAP      20        8          N        N        N        N        N        5
+
