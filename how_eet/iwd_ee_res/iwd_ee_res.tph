@@ -1,0 +1,84 @@
+
+OUTER_SPRINT newline ~%WNL%%LNL%%MNL%%TAB% ~
+OUTER_SPRINT slash ~/~
+OUTER_SPRINT quote ~"~
+OUTER_SPRINT tilde "~"
+OUTER_SPRINT dog   ~@~
+
+ADD_JOURNAL EXISTING TITLE (@2000029) @40680
+
+COMPILE ~%MOD_FOLDER%/iwd_ee_res/dia.d~
+
+<<<<<<<<add_itm.baf
+IF
+  !Global("ID_%itmm%_ADDED","MYAREA",1)
+THEN
+  RESPONSE #100
+    SetGlobal("ID_%itmm%_ADDED","MYAREA",1)
+    ActionOverride("%contnn%",CreateItem("%itmm%",1,1,1))
+    Continue()
+END
+>>>>>>>>
+
+OUTER_SPRINT ~itmm~ ~SW1H46~
+OUTER_SPRINT ~contnn~ ~Pot 5~
+EXTEND_BOTTOM ~ID9400.BCS~ ~add_itm.baf~ EVALUATE_BUFFER
+
+COPY_EXISTING ~waukeen.sto~ ~override~
+  ADD_STORE_ITEM ~OHBRAC02~ #1 #1 #1 ~IDENTIFIED~ #1
+
+COPY_EXISTING ~kieran2.sto~ ~override~
+  ADD_STORE_ITEM ~OHIOUN02~ #1 #1 #1 ~IDENTIFIED~ #1
+
+COPY_EXISTING ~tiernon.sto~ ~override~
+  ADD_STORE_ITEM ~OHFULLP~  #0 #0 #0 ~IDENTIFIED~ #1
+
+ACTION_FOR_EACH file IN GIANTFG GIANTFI2 GIANTFIR GIANTFN GIANTFRO GORG JORIL BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME ~%file%.cre~ BEGIN
+    COPY_EXISTING ~%file%.cre~ ~override~
+      ADD_CRE_ITEM ~HELM01~ #0 #0 #0 ~UNSTEALABLE&UNDROPPABLE~ ~HELMET~
+  END
+END
+
+COPY ~%MOD_FOLDER%/iwd_ee_res/ohbrac02.ITM~ ~override~
+  SAY 0x0c @40268
+  SAY 0x54 @40269
+
+COPY ~%MOD_FOLDER%/iwd_ee_res/ohioun02.ITM~ ~override~
+  SAY 0x0c @40371
+  SAY 0x54 @40372
+
+COPY ~%MOD_FOLDER%/iwd_ee_res/ohfullp.ITM~  ~override~
+
+COPY ~%MOD_FOLDER%/iwd_ee_res/IPLAT04_.BAM~ ~override~
+     ~%MOD_FOLDER%/iwd_ee_res/ohioun02.BAM~ ~override~
+
+COPY ~%MOD_FOLDER%/iwd_ee_res/ohbrac02.SPL~ ~override~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
