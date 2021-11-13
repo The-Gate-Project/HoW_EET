@@ -1,0 +1,25 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		Wait(1)
+		ApplySpellRES("IDRM517",Player1)  // Воскрешение
+		ApplySpellRES("IDRM517",Player2)  // Воскрешение
+		ApplySpellRES("IDRM517",Player3)  // Воскрешение
+		ApplySpellRES("IDRM517",Player4)  // Воскрешение
+		ApplySpellRES("IDRM517",Player5)  // Воскрешение
+		ApplySpellRES("IDRM517",Player6)  // Воскрешение
+		Wait(1)
+		ActionOverride(Player2,LeaveAreaLUA("%HjollderA%","",[668.193],8))
+		ActionOverride(Player3,LeaveAreaLUA("%HjollderA%","",[707.219],10))
+		ActionOverride(Player4,LeaveAreaLUA("%HjollderA%","",[757.192],6))
+		ActionOverride(Player5,LeaveAreaLUA("%HjollderA%","",[653.220],9))
+		ActionOverride(Player6,LeaveAreaLUA("%HjollderA%","",[755.209],7))
+		LeaveAreaLUAPanic("%HjollderA%","",[709.192],8)
+		LeaveAreaLUA("%HjollderA%","",[709.192],8)
+		Wait(1)
+		FadeFromColor([15.0],0)
+		Wait(2)
+		EndCutSceneMode()
+END
