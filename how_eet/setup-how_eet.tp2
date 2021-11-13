@@ -343,6 +343,9 @@ LANGUAGE ~Russian~
 LANGUAGE ~English~
 	     ~en_US~
 	     ~how_eet/lang/en_US/dialog.tra~
+LANGUAGE ~French~
+	     ~fr_FR~
+	     ~how_eet/lang/fr_FR/dialog.tra~
 
 BEGIN ~Heart of Winter in Baldur's Gate Enhanced Edition (Trilogy)~
 REQUIRE_PREDICATE ( GAME_IS ~bgee~ AND GAME_INCLUDES ~sod~ ) OR ( GAME_IS ~eet~ ) ~Not compatible game.~
