@@ -1,0 +1,31 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		StartCutSceneMode()
+		ClearAllActions()
+		MultiPlayerSync()
+		//StopJoinRequests()
+		SetGlobal("2109_RESET_JOIN","GLOBAL",1)
+		MultiPlayerSync()
+		ActionOverride("HJOLLDER",ForceSpellRES("IDIN133",Myself)) //INNATE_WIND_WALK
+		Wait(2)
+		ActionOverride("HJOLLDER",SetGlobal("SET_MYSELF_HIDDEN","LOCALS",1))
+		ActionOverride("HJOLLDER",SetGlobal("IwIHidden","LOCALS",1))
+		//HideCreature(Myself,TRUE)
+		Deactivate("HJOLLDER")
+		SmallWait(5)
+		ActionOverride(Player2,LeaveAreaLUA("%HjollderA%","",[668.193],8))
+		ActionOverride(Player3,LeaveAreaLUA("%HjollderA%","",[707.219],10))
+		ActionOverride(Player4,LeaveAreaLUA("%HjollderA%","",[757.192],6))
+		ActionOverride(Player5,LeaveAreaLUA("%HjollderA%","",[653.220],9))
+		ActionOverride(Player6,LeaveAreaLUA("%HjollderA%","",[755.209],7))
+		LeaveAreaLUAPanic("%HjollderA%","",[709.192],8)
+		LeaveAreaLUA("%HjollderA%","",[709.192],8)
+		SmallWait(5)
+		MultiPlayerSync()
+		EndCutSceneMode()
+		//StartCutScene("LUA2109")
+END
+
