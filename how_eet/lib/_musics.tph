@@ -39,24 +39,42 @@ MKDIR ~music/ID9502~
 MKDIR ~music/ID9600~
 MKDIR ~music/ID9603~
 
-
+// BUGFIX: oIWD music is encoded as stereo, but the header metadata reports mono
+// the EE engine follows the header metadata, but NI ignores it, correction applied during install
 COPY ~%MOD_FOLDER%/musics/D1~ ~music/D1~
+    WRITE_BYTE 0x08 2
 COPY ~%MOD_FOLDER%/musics/D2~ ~music/D2~
+    WRITE_BYTE 0x08 2
 COPY ~%MOD_FOLDER%/musics/D3~ ~music/D3~
+    WRITE_BYTE 0x08 2
 COPY ~%MOD_FOLDER%/musics/D4~ ~music/D4~
+    WRITE_BYTE 0x08 2
 COPY ~%MOD_FOLDER%/musics/D5~ ~music/D5~
+    WRITE_BYTE 0x08 2
 COPY ~%MOD_FOLDER%/musics/D6~ ~music/D6~
+    WRITE_BYTE 0x08 2
 COPY ~%MOD_FOLDER%/musics/ID9100~ ~music/ID9100~
+    WRITE_BYTE 0x08 2
 COPY ~%MOD_FOLDER%/musics/ID9103~ ~music/ID9103~
+    WRITE_BYTE 0x08 2
 COPY ~%MOD_FOLDER%/musics/ID9200~ ~music/ID9200~
+    WRITE_BYTE 0x08 2
 COPY ~%MOD_FOLDER%/musics/ID9201~ ~music/ID9201~
+    WRITE_BYTE 0x08 2
 COPY ~%MOD_FOLDER%/musics/ID9300~ ~music/ID9300~
+    WRITE_BYTE 0x08 2
 COPY ~%MOD_FOLDER%/musics/ID9400~ ~music/ID9400~
+    WRITE_BYTE 0x08 2
 COPY ~%MOD_FOLDER%/musics/ID9500~ ~music/ID9500~
+    WRITE_BYTE 0x08 2
 COPY ~%MOD_FOLDER%/musics/ID9501~ ~music/ID9501~
+    WRITE_BYTE 0x08 2
 COPY ~%MOD_FOLDER%/musics/ID9502~ ~music/ID9502~
+    WRITE_BYTE 0x08 2
 COPY ~%MOD_FOLDER%/musics/ID9600~ ~music/ID9600~
+    WRITE_BYTE 0x08 2
 COPY ~%MOD_FOLDER%/musics/ID9603~ ~music/ID9603~
+    WRITE_BYTE 0x08 2
 
 
 
