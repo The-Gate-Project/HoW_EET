@@ -1,5 +1,7 @@
 BACKUP ~how_eet/backup~
-AUTHOR ~Ya~
+AUTHOR ~tipun~
+
+VERSION ~0.9~
 
 ALWAYS
   //BLOCK CRE_TO_AREA
