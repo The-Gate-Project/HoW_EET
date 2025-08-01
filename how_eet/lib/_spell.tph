@@ -6,7 +6,7 @@ COPY ~%MOD_FOLDER%/spl/IDMXHPS.SPL~ ~override~
      ~%MOD_FOLDER%/spl/IDIN973.SPL~ ~override~
      ~%MOD_FOLDER%/spl/IDWI023.SPL~ ~override~
      ~%MOD_FOLDER%/spl/IDWI021.SPL~ ~override~
-     ~%MOD_FOLDER%/spl/IDIN993.SPL~ ~override~
+     //~%MOD_FOLDER%/spl/IDIN993.SPL~ ~override~
      ~%MOD_FOLDER%/spl/IDSETHP1.SPL~ ~override~
      ~%MOD_FOLDER%/spl/IDSTHP25.SPL~ ~override~
      ~%MOD_FOLDER%/spl/IDIN984.SPL~ ~override~
@@ -105,6 +105,9 @@ COPY ~%MOD_FOLDER%/spl/IDIN974.SPL~ ~override~
 
 COPY ~%MOD_FOLDER%/spl/IDIN991.SPL~ ~override~
   WRITE_SHORT 0x98 ~%idpro284%~
+  
+COPY ~iwd1_eet/spl/IDIN993.SPL~ ~override~
+  WRITE_SHORT 0x98 ~%idpro282%~
 
 COPY ~%MOD_FOLDER%/spl/IDIN979.SPL~ ~override~
   WRITE_SHORT 0x98 ~%idpro294%~
@@ -194,6 +197,7 @@ COPY ~%MOD_FOLDER%/spl/IDIN154.SPL~ ~override~
 
 COPY ~%MOD_FOLDER%/spl/IDIN159.SPL~ ~override~
   SAY 0x08 @26661
+  WRITE_SHORT 0x98 159
 
 COPY ~%MOD_FOLDER%/spl/IDPR613.SPL~ ~override~
   SAY 0x08 @21398

@@ -813,6 +813,13 @@ LAF ADD_SAVE_GAME INT_VAR strref = RESOLVE_STR_REF (@666605) RET aStr = index EN
 COPY ~%MOD_FOLDER%/baf/ID9600.baf~     ~%MOD_FOLDER%/baf~ REPLACE_TEXTUALLY ~SaveGame(0)~ ~SaveGame(%aStr%)~
 //BLOCKEND
 
+
+COPY_EXISTING ~XPLIST.2da~   ~override~
+              ~ITEMEXCL.2da~ ~override~
+              ~MASTAREA.2da~ ~override~
+              ~SAVENAME.2DA~ ~override~
+	PRETTY_PRINT_2DA
+
 //BLOCKEND
 
 COPY ~%MOD_FOLDER%/ini~ ~override~

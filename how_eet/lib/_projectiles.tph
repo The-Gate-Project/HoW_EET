@@ -14,6 +14,7 @@ ADD_PROJECTILE ~%MOD_FOLDER%/pro/idpro270.pro~ ~Flame Oil~
 ADD_PROJECTILE ~%MOD_FOLDER%/pro/idpro271.pro~ ~Sol searing orb~
 ADD_PROJECTILE ~%MOD_FOLDER%/pro/idpro279.pro~ ~Malavons corrosive fog~
 ADD_PROJECTILE ~%MOD_FOLDER%/pro/idpro281.pro~ ~Umber Hulk Gaze~
+ADD_PROJECTILE ~%MOD_FOLDER%/pro/idpro282.pro~ ~Bombardier Beetle cloud~
 ADD_PROJECTILE ~%MOD_FOLDER%/pro/idpro283.pro~ ~Zombie lord aura~
 ADD_PROJECTILE ~%MOD_FOLDER%/pro/idpro284.pro~ ~Iron golem cloud~
 ADD_PROJECTILE ~%MOD_FOLDER%/pro/idpro285.pro~ ~Myconid spores~

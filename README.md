@@ -2,9 +2,9 @@
 
 ## Mod Heart of Winter for BGEE / EET
 
-##### Author: Tipun
+**Autor** : [Tipun]
 
-##### Mod forum:  <a href="https://arcanecoast.ru/forum/viewtopic.php?f=31&t=1247">Arcane Coast</a><br>
+**Mod Forum** : [Arcanecoast](https://arcanecoast.ru/forum/viewtopic.php?f=31&t=1247)  
 
 While waiting for the release if IWD-EET, the mod Heart of Winter for BGEE/EET is available.
 
