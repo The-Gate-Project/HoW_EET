@@ -220,6 +220,7 @@ COPY ~%MOD_FOLDER%/creatures/SKALDAR.cre~ ~override~
 COPY ~%MOD_FOLDER%/creatures/EDION.cre~ ~override~
     SAY 0x8 @24389
     SAY 0xc @21868
+	WRITE_ASCII DEATHVAR ~edion~ (32)
 COPY ~%MOD_FOLDER%/creatures/WVIRGIN.cre~ ~override~
     SAY 0x8 @21836
     SAY 0xc @21861

@@ -106,7 +106,7 @@ COPY ~%MOD_FOLDER%/spl/IDIN974.SPL~ ~override~
 COPY ~%MOD_FOLDER%/spl/IDIN991.SPL~ ~override~
   WRITE_SHORT 0x98 ~%idpro284%~
   
-COPY ~iwd1_eet/spl/IDIN993.SPL~ ~override~
+COPY ~%MOD_FOLDER%/spl/IDIN993.SPL~ ~override~
   WRITE_SHORT 0x98 ~%idpro282%~
 
 COPY ~%MOD_FOLDER%/spl/IDIN979.SPL~ ~override~

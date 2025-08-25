@@ -4790,7 +4790,7 @@ Ce sort invoque de l'énergie du Plan Positif et ouvre un conduit entre celui-ci
 @4026  = ~[JAHEIRA 21] À vos ordres.~ [JAHER21]
 @4027  = ~[JAHEIRA 22] C'est comme si c'était fait.~ [JAHER22]
 @4028  = ~[JAHEIRA 23] Qu'y a-t-il maintenant ? Besoin qu'on vous repasse votre culotte peut-être ?!!~ [JAHER23]
-@4029  = ~[JAHEIRA 24 Selon vos ordres.~ [JAHER24]
+@4029  = ~[JAHEIRA 24] Selon vos ordres.~ [JAHER24]
 @4030  = ~[JAHEIRA 25] Ce serait un endroit idéal pour ériger un cromlech !~ [JAHER25]
 @4031  = ~[JAHEIRA 26] Si jamais un arbre tombe dans la forêt... je tuerai le bâtard qui l'aura abattu !~ [JAHER26]
 @4032  = ~[JAHEIRA 27] Khalid, mon chéri, le jour où vous vous déciderez à parler, les poules auront des dents.~ [JAHER27]
@@ -16130,7 +16130,7 @@ Poids : 7~
 @11074 = ~Intéressant. Montrez-moi vos marchandises.~
 @11075 = ~[ELF FEMALE 5]  ~ [FELFF05]
 @11076 = ~[ELF FEMALE 6]  ~ [FELFF06]
-@11077 = ~[MALE GREETING 1Oui ?~ [GENMG01]
+@11077 = ~[MALE GREETING 1] Oui ?~ [GENMG01]
 @11078 = ~[MALE GREETING 2] Qu'est-ce qu'il vous faut ?~ [GENMG02]
 @11079 = ~[MALE GREETING 3] Hum ?~ [GENMG03]
 @11080 = ~Vraiment ? Où êtes-vous allé ? ~
@@ -16178,7 +16178,7 @@ Poids : 7~
 @11122 = ~[FEMALE GREETING 15]  Quoi ?~ [GENFG15]
 @11123 = ~[FEMALE THREAT 1] Ça peut paraître indigne d'une dame mais je vais vous égorger !~ [GENFT01]
 @11124 = ~[FEMALE THREAT 2] Je crois que vous aller mourir ici.~ [GENFT02]
-@11125 = ~[FEMALE THREAT 3 Feriez bien de faire la paix avec vos démons avant que j'vous envoie les rejoindre.~ [GENFT03]
+@11125 = ~[FEMALE THREAT 3] Feriez bien de faire la paix avec vos démons avant que j'vous envoie les rejoindre.~ [GENFT03]
 @11126 = ~[FEMALE THREAT 4] Vot' fin sera rapide, si vous vous laissez faire..~ [GENFT04]
 @11127 = ~[FEMALE THREAT 5] J'suis d'avis qu'vous mangerez les pissenlits par la racine avant la fin de la nuit.~ [GENFT05]
 @11128 = ~[FEMALE THREAT 6] Vot' vie n'a aucun intérêt pour moi.~ [GENFT06]
@@ -27520,6 +27520,7 @@ Jet de sauvegarde : spécial
 Ce puissant enchantement permet au magicien d'inscrire, à même le sol ou sur toute autre surface, un symbole qui y reste jusqu'à ce que quelqu'un approche. À ce moment, le symbole explose et toutes les créatures comprises dans la zone d'effet doivent réussir un jet de sauvegarde contre les sorts (à -4) sous peine d'être terrorisées pendant 1 round par niveau du lanceur.~
 @17363 = ~Anneau de sorcellerie de Kontik~
 @17364 = ~L'Anneau de Sorcellerie de Kontik
+
 Kontik, puissante magicienne au service d'Aurile, a pris cet anneau à un ennemi vaincu, Nill l'Infernal. Archimage se spécialisant dans la maîtrise du feu, Nill avait mis cinq ans pour créer ce puissant anneau qui l'avait bien aidé lors de ses grands voyages. Malheureusement pour lui, l'objet ne fut pas assez puissant contre les sorts et les séides de Kontik. L'anneau a été obtenu à partir d'un étrange métal gris-blanc appelé tungstène.
 
 PARAMÈTRES :
@@ -32682,7 +32683,7 @@ Fondateur de Château-Suif~
 @20668 = ~La porte est verrouillée et barrée de l'extérieur, semble-t-il.~
 @20669 = ~Qu'est-ce que c'est ?~ [FMAGE4H]
 @20670 = ~<DURATIONNOAND>~
-@20671 = ~Aujourd'hui, notre groupe est arrivé à la communauté d'Havredest, village enneigé de bord de lac. Epuisés et à moitié gelés, nous nous sommes hâtés d'aller nous réchauffer devant un bon repas à la taverne. Nous nous étions tout juste assis que nous avons été accostés par un guerrier râblé du nom de Hrothgar. Il s'est montré amical, mais c'est manifestement quelqu'un qu'il ne fait pas bon irriter. Il nous a poliment demandé de venir chez lui, à deux maisons de la taverne, car il avait une affaire à nous proposer.~
+@20671 = ~Aujourd'hui, notre groupe est arrivé à la communauté d'Havredest, village enneigé de bord de lac. Épuisés et à moitié gelés, nous nous sommes hâtés d'aller nous réchauffer devant un bon repas à la taverne. Nous nous étions tout juste assis que nous avons été accostés par un guerrier râblé du nom de Hrothgar. Il s'est montré amical, mais c'est manifestement quelqu'un qu'il ne fait pas bon irriter. Il nous a poliment demandé de venir chez lui, à deux maisons de la taverne, car il avait une affaire à nous proposer.~
 @20672 = ~Je suis là.~ [FMAGE40]
 @20673 = ~[no text]~
 @20674 = ~[no text]~
@@ -50997,7 +50998,7 @@ Poids : 10~
 @100127 = ~Symbole des Saisons~
 
 //GRIZELLA QUEST
-@120000 = ~Les scarabées dans la cave~
+@120000 = ~Des scarabées dans la cave~
 @120001 = ~Des scarabées dans la cave
 
 À la taverne du Berceau de l'hiver, nous avons demandé à boire. L'hôtesse nous a répondu que cela ne lui était pas facile de l'admettre ... mais, elle avais peur de descendre dans sa vieille cave poussiéreuse, des créatures y ont élu domicile, et elle est terrifiée par les insectes !~
@@ -51006,7 +51007,7 @@ Poids : 10~
 Nous avons dit à Grisella que nous avions éliminé les insectes. Elle était très reconnaissante, elle a seulement demandé ... que ce petit problème reste entre nous.  Elle ne veut pas que des rumeurs se répandent dans la ville, à propos de sa porcherie, ...taverne .~
 
 //BANDOTH QUEST
-@120010 = ~Service à Bandoth~
+@120010 = ~Un Service pour Bandoth~
 @120011 = ~Un Service pour Bandoth
 
 Dans le Gouffre de Dorn, un mage nommé Bandoth nous a demandé de lui rendre service en échange d'informations. Il nous a dit avoir envoyé son apprenti chercher de l'extrait de razorvigne, et qu'il était parti depuis plusieurs jours. Il craint qu'il soit tombé sur des habitants hostile dans ces grottes. Et il a promis qu'il nous dirait ce que nous voulons savoir si nous trouvons son apprenti.~
@@ -51224,7 +51225,7 @@ Non utilisable par :
 @4034635 = ~Oui. Allez-vous m'aider à trouver la relique ?~
 @4034636 = ~Merci de m'avoir aidé à trouver la couronne de notre roi.~
 
-@4034637 = ~Couronne du roi~
+@4034637 = ~La couronne du roi~
  // quest
 @4034638 = ~La couronne du roi
 
