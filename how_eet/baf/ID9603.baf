@@ -3,6 +3,7 @@ IF
   !Global("ERASE_IWD_JOURNAL","MYAREA",1)
 THEN
   RESPONSE #100
+    SetGlobal("ERASE_IWD_JOURNAL","MYAREA",1)
     EraseJournalEntry(@26302)
     EraseJournalEntry(@25836)
     EraseJournalEntry(@25837)
@@ -35,7 +36,7 @@ THEN
     EraseJournalEntry(@23536)
     EraseJournalEntry(@23543)
     AddJournalEntry(@2000036,QUEST_DONE)
-    SetGlobal("ERASE_IWD_JOURNAL","MYAREA",1)
+	Continue()
 END
 
 IF

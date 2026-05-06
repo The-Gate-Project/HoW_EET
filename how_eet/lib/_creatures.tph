@@ -410,9 +410,11 @@ COPY ~%MOD_FOLDER%/creatures/SAKING.cre~ ~override~
 COPY ~%MOD_FOLDER%/creatures/DLSGEM.cre~ ~override~
     SAY 0x8 @26447
     SAY 0xc @26452
+	WRITE_ASCII DEATHVAR ~IWD_GEM~ (32)
 COPY ~%MOD_FOLDER%/creatures/ICASA.cre~ ~override~
     SAY 0x8 @25385
     SAY 0xc @25386
+	WRITE_ASCII DEATHVAR ~ICASARACHT~ (32)
 COPY ~%MOD_FOLDER%/creatures/RNDSAWAR.cre~ ~override~
     SAY 0x8 @3091
     SAY 0xc @3092
