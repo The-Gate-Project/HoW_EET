@@ -73,7 +73,7 @@ COPY ~%MOD_FOLDER%/creatures/AMBERE.cre~ ~override~
 COPY ~%MOD_FOLDER%/creatures/BEDD1.cre~ ~override~
     SAY 0x8 @12808
     SAY 0xc @12801
-COPY ~%MOD_FOLDER%/creatures/QUINN.cre~ ~override~
+COPY ~%MOD_FOLDER%/creatures/QUINN.cre~ ~override/IDQUINN.cre~
     SAY 0x8 @21829
     SAY 0xc @21854
 COPY ~%MOD_FOLDER%/creatures/EMMERICH.cre~ ~override~

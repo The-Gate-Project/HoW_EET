@@ -24,6 +24,7 @@ SILENT
 	 COPY ~%MOD_FOLDER%/areas/id9102.are~ ~override~
 	 
 	 COPY ~%MOD_FOLDER%/areas/id9103.are~ ~override~
+	 	WRITE_ASCII 0x19c ~IDQUINN~ (8)
 	 	SAY 852 @26226
 	 	SAY 1048 @26226
 	 	SAY 1244 @26227
