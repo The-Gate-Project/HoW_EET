@@ -5,7 +5,7 @@
 [![Downloads](https://img.shields.io/github/downloads/The-Gate-Project/HoW_EET/total?color=41788a)](https://github.com/The-Gate-Project/HoW_EET/releases)
 
 [![Language](https://img.shields.io/badge/language-english%20%7C%20french%20%7C%20russian-014a69)](https://github.com/The-Gate-Project/HoW_EET/releases)
-[![Games](https://img.shields.io/badge/games-EET-41788a)](https://github.com/The-Gate-Project/HoW_EET/releases)
+[![Games](https://img.shields.io/badge/games-EET%20%7C%20BGEE-41788a)](https://github.com/The-Gate-Project/HoW_EET/releases)
 
 <!--
 

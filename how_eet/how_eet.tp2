@@ -824,6 +824,7 @@ COPY_EXISTING ~XPLIST.2da~   ~override~
 
 COPY ~%MOD_FOLDER%/ini~ ~override~
 
+INCLUDE ~%MOD_FOLDER%/lib/lib.tph~
 INCLUDE ~%MOD_FOLDER%/lib/_projectiles.tph~
 INCLUDE ~%MOD_FOLDER%/lib/_items.tph~
 INCLUDE ~%MOD_FOLDER%/lib/_spell.tph~
